@@ -1,4 +1,4 @@
-/*! Made on 05-05-2016 */
+/*! Made on 06-05-2016 */
 /* Angular routing and app declaration */
 
 var app = angular.module('fsimApp', ['ui.router']);
@@ -16,23 +16,34 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
         $urlRouterProvider.otherwise('home');
     }
 ]);
-app.controller('FrontCtrl', ['$scope', '$state',
-    function ($scope, $state) {
+app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout',
+    function ($scope, $state, FrontFact, $timeout) {
+
+    	/* 
+
+    		$scope.einn = FrontFact.einn():
+
+		*/
+
+    	FrontFact.einn().then(function(response){
+    		$scope.einn = response.data;
+		});
 
     }
 ]);
 /* FrontFactory */
-
-app.factory('FrontFact', ['$http', '$window', 
-    function ($http, $window, auth) {
-        var factory = {};
-
-        factory.somefunc = function (someobject) {
-
-        	$http.post('/api/something', someobject).success(function (data) {
-        		/* Return for message if any. */
-            });
-        }
-    
-    return factory;
-}]);
+app.factory('FrontFact', ['$http', 
+    function ($http) {
+    	
+    	return {
+    		einn : function () {
+        		return $http.get('/statistic/einn');
+            /*
+                .success(function (data) {
+        		  return data;
+                });
+    		*/
+            }
+		};
+	}
+]);
