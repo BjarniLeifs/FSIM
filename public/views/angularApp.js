@@ -10,6 +10,11 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
             url: '/home',
             templateUrl: 'views/components/frontpage/index.html',
             controller: 'FrontCtrl'
+        })
+        .state('indexedloan', {
+            url: '/indexedloan',
+            templateUrl: 'views/components/indexedloan/index.html',
+            controller: 'IndexedLoanCtr'
         });
 
         $urlRouterProvider.otherwise('home');

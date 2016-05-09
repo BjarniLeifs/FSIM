@@ -1,4 +1,4 @@
-/*! Made on 08-05-2016 */
+/*! Made on 09-05-2016 */
 /* Angular routing and app declaration */
 
 var app = angular.module('fsimApp', ['ui.router']);
@@ -11,6 +11,11 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
             url: '/home',
             templateUrl: 'views/components/frontpage/index.html',
             controller: 'FrontCtrl'
+        })
+        .state('indexedloan', {
+            url: '/indexedloan',
+            templateUrl: 'views/components/indexedloan/index.html',
+            controller: 'IndexedLoanCtr'
         });
 
         $urlRouterProvider.otherwise('home');
@@ -47,4 +52,19 @@ app.factory('FrontFact', ['$http',
             }
 		};
 	}
+]);
+app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout',
+    function ($scope, $state, $timeout) {
+
+    	/* 
+
+    		$scope.einn = FrontFact.einn():
+
+		*/
+
+    	FrontFact.einn().then(function(response){
+    		$scope.einn = response.data;
+		});
+
+    }
 ]);
