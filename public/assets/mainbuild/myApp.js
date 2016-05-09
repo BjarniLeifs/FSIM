@@ -1,4 +1,4 @@
-/*! Made on 06-05-2016 */
+/*! Made on 08-05-2016 */
 /* Angular routing and app declaration */
 
 var app = angular.module('fsimApp', ['ui.router']);
@@ -31,6 +31,7 @@ app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout',
 
     }
 ]);
+
 /* FrontFactory */
 app.factory('FrontFact', ['$http', 
     function ($http) {
