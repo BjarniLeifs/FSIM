@@ -24,20 +24,6 @@ module.exports = function(grunt) {
         dest: 'public/assets/mainbuild/myApp.css',
       }
     },
-    less: {
-      development: {
-        options: {
-          paths: ['public/assets/css/less'],
-          yuicompress: true,
-          optimization: 2,
-          banner: '/*! Made on <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-        },
-        files: {
-          // target.css file: source.less file
-          'public/assets/testLess.css': 'public/assets/less/myApp.less'
-        }
-      }
-    },
     cssmin: {
       options: {
         keepSpecialComments: 0,
@@ -92,8 +78,8 @@ module.exports = function(grunt) {
         }
       },
       css: {
-        files: ['public/assets/less/**/*.less', 'public/assets/css/**/*.css'],
-        tasks: ['less', 'concat_css'],
+        files: ['public/assets/css/**/*.css'],
+        tasks: ['concat_css'],
         options: {
           nospawn: true
         }
@@ -102,7 +88,7 @@ module.exports = function(grunt) {
     nodemon: {
       dev: {
         script: 'bin/www',
-        ignore:  ['node_modules/**','bower_components/**','public/**']
+        ignore:  ['node_modules/**','bower_components/**']
       }
     },
     concurrent: {
