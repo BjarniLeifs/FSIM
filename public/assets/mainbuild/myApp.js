@@ -30,14 +30,15 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
     
         $urlRouterProvider.otherwise('home');
 
-        
-        
+    /* Translator configuration, files are in prefix path below*/
 
         $translateProvider.useStaticFilesLoader({
           prefix: 'views/components/languages/',
           suffix: '.json'
         });
-        $translateProvider.preferredLanguage('en');
+
+        $translateProvider.preferredLanguage('is');
+        $translateProvider.useSanitizeValueStrategy('escape');
     }
 ]);
 app.controller('CompoundCtrl', ['$scope', '$state', '$timeout',
@@ -113,6 +114,24 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout',
     function ($scope, $state, $timeout) {
 
 
+
+    }
+]);
+app.controller('NavCtrl', ['$scope', '$state', 'FrontFact', '$timeout', '$translate',
+    function ($scope, $state, FrontFact, $timeout, $translate) {
+		/* Translator */
+		$scope.changeLanguage = function (key) {
+			$translate.use(key);
+		};
+    	/* 
+
+    		$scope.einn = FrontFact.einn():
+
+		*/
+
+    	FrontFact.einn().then(function(response){
+    		$scope.einn = response.data;
+		});
 
     }
 ]);

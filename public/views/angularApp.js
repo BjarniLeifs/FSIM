@@ -29,13 +29,14 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
     
         $urlRouterProvider.otherwise('home');
 
-        
-        
+    /* Translator configuration, files are in prefix path below*/
 
         $translateProvider.useStaticFilesLoader({
           prefix: 'views/components/languages/',
           suffix: '.json'
         });
-        $translateProvider.preferredLanguage('en');
+
+        $translateProvider.preferredLanguage('is');
+        $translateProvider.useSanitizeValueStrategy('escape');
     }
 ]);
