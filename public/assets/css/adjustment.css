@@ -15,9 +15,9 @@ footer {
     padding: 30px 0;
 }
 #footer-adjust {
- 
-
     text-align: center;
+    vertical-align: bottom
+
 }
 
 @media(min-width:768px) {

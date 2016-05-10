@@ -50,7 +50,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="navbar-brand">
-                            <a  ><img src="/assets/image/logo.png" width="45" height="36" alt=""></a>
+                            <a ui-sref="home" ><img src="/assets/image/logo.png" width="45" height="36" alt=""></a>
                             <a ng-click="changeLanguage('en')"> <img src="/assets/image/en.png" width="22" height="18" alt=""></a>
                         <a ng-click="changeLanguage('is')"><img src="/assets/image/is.png" width="22" height="18" alt=""></a>
                         </div>
@@ -82,11 +82,7 @@
         <!-- Page Content Starts with injection of Angularjs -->
         <div ui-view ></div>
         <!-- Page Content Stops injection of Angularjs -->
-        <nav class="navbar navbar-default navbar-fixed-bottum">
-            <div class="container" id="footer-adjust">
-                <p> &copy; Birt með fyrirvara 2016</p>
-            </div>
-        </nav>
+
         <!-- Footer starts
         <footer>
             <div class="row">
