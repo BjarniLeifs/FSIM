@@ -10,42 +10,60 @@ router.get('/einn', function(req, res, next) {
 
 
 router.get('/indexloan', function(req, res, next) {
+	var capital;
+	var payInterest;
+	var Principal = 20000000;//req.body.principal,
+	var Interest = 0.04;//req.body.interest,
+	var duration = 300;//req.body.duration,
 
-	var Principal = req.body.principal,
-	interest = req.body.interest,
-	duration = req.body.duration,
-	I = interest,
-	D = ((30.0)/(360.0)),
-	CPI = req.body.cpi,
-	inflation = Math.pow((1.0 + CPI ),(1.0/12.0)) - 1,
-	AF = [],
-	P = [],
-	Payment = [],
-	Interest = [],
-	II = [],
-	P0 = [],
-	tt = [],
-	Increase = 0,
-	Total = 0,
-	Negam = 0,
-	it;
+	var D = ((30.0)/(360.0));
+	var CPI = 0.1;//req.body.cpi;
+	var inflation = Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
+	var AF = [];
+	var P = [];
+	
+	//var interest = [];
+	var II = [];
+	
+
+	var Increase = 0;
+	var total = 0;
+	var it;
+	var payment;
+	var test = Math.pow(2,3);
+	console.log(test);
 
 	for (it = 0; it < duration; it++) {
-		af.push((1/(D*I) - 1/((D*I) * Math.pow(1+D*I,duration-it))))
+
+		AF.push((1/(D*Interest) - 1/((D*Interest) * Math.pow(1+D*Interest,duration-it))));
 
 		if (it == 0) {
 			II.push(100 + 100 * inflation);
 			P.push(Principal * II[0]/100);
 			Increase = P[0] - Principal;
+			
 		} else {
 
-			II.push((P[i-1] - capital) * II[i]/II[i-1]);
+			II.push(II[it-1] + II[it-1]*inflation);
+			P.push((P[it-1] - capital) * II[it]/II[it-1]);
+
+			Increase = ((P[it-1] - capital) * II[it]/II[it-1]) - (P[it-1] - capital);
+
 		}
+
+
+		payment  = P[it]/AF[it];
+
+		payInterest = P[it] * Interest * D;
+		console.log('pay : '+ payment+ ' Int : ' + payInterest);
+		capital  = payment - payInterest;
+		total += capital;
+		
 	}
 
+console.log(total);
 
-	var ble = "2";
-  	return res.status(200).json(ble);
+  	return res.status(200).json({messgae : 'yes'});
 });
 
 
@@ -53,19 +71,3 @@ router.get('/indexloan', function(req, res, next) {
 
 module.exports = router;
 
-/*
-Where does this capital come from 
-
-
-II.append(II[i-1] + II[i-1]*inflation)
-P.append((P[i-1] - capital) * II[i]/II[i-1])
-    increase = ((P[i-1] - capital) * II[i]/II[i-1]) - (P[i-1] - capital)
-  payment  = P[i]/AF[i]
-  interest = P[i] * Interest * D
-  capital  = payment - interest
-  total += capital
-print "%0.1f %.2f %0.1f %0.1f %0.2f %0.1f  Inc:%0.1f" % (II[i],AF[i], P[i], payment, capital, interest, increase)
-print "Capital paid = %.2f" % total
-
-
-*/
