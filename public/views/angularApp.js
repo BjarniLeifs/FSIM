@@ -1,9 +1,9 @@
 /* Angular routing and app declaration */
 
-var app = angular.module('fsimApp', ['ui.router']);
+var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate']);
 
-app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$translateProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {
         $stateProvider
     /* Main page state starts */
         .state('home', {
@@ -15,8 +15,27 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
             url: '/indexedloan',
             templateUrl: 'views/components/indexedloan/index.html',
             controller: 'IndexedLoanCtr'
+        })
+        .state('compoundloan', {
+            url: '/compoundloan',
+            templateUrl: 'views/components/compoundloan/index.html',
+            controller: 'CompoundCtrl'
+        })        
+        .state('contributors', {
+            url: '/contributors',
+            templateUrl: 'views/components/contributors/index.html',
+            controller: 'ContributorsCtrl'
         });
-
+    
         $urlRouterProvider.otherwise('home');
+
+        
+        
+
+        $translateProvider.useStaticFilesLoader({
+          prefix: 'views/components/languages/',
+          suffix: '.json'
+        });
+        $translateProvider.preferredLanguage('en');
     }
 ]);

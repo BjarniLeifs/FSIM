@@ -1,6 +1,9 @@
-app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout',
-    function ($scope, $state, FrontFact, $timeout) {
-
+app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout', '$translate',
+    function ($scope, $state, FrontFact, $timeout, $translate) {
+		/* Translator */
+		$scope.changeLanguage = function (key) {
+			$translate.use(key);
+		};
     	/* 
 
     		$scope.einn = FrontFact.einn():

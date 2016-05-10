@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="page-header">
+            <h4>This project can be found at :</h4>
+            <p>
+                <i class="glyphicon glyphicon glyphicon-tasks"> : </i> 
+                <a href="{{projectUrl}}">Link to github</a>
+            </p>
+        </div>
+        <h4>Current list of contributors</h4>
+        <br>
+        <div ng-repeat="contact in contributors | orderBy:'name'" class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <p><i class="glyphicon glyphicon-user"> : </i> {{contact.name}}</p>
+                    <p><i class="glyphicon glyphicon-envelope"> : </i> 
+                    <a href="mailto:{{contact.email}}">{{ contact.email}}</a></p>
+                    <p><i class="glyphicon glyphicon-education"> : </i> {{contact.study}}</p>
+                    <p><i class="glyphicon glyphicon-home"> : </i> {{contact.school}}</p>
+  
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,10 +1,10 @@
-/*! Made on 09-05-2016 */
+/*! Made on 10-05-2016 */
 /* Angular routing and app declaration */
 
-var app = angular.module('fsimApp', ['ui.router']);
+var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate']);
 
-app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$translateProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {
         $stateProvider
     /* Main page state starts */
         .state('home', {
@@ -16,14 +16,70 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
             url: '/indexedloan',
             templateUrl: 'views/components/indexedloan/index.html',
             controller: 'IndexedLoanCtr'
+        })
+        .state('compoundloan', {
+            url: '/compoundloan',
+            templateUrl: 'views/components/compoundloan/index.html',
+            controller: 'CompoundCtrl'
+        })        
+        .state('contributors', {
+            url: '/contributors',
+            templateUrl: 'views/components/contributors/index.html',
+            controller: 'ContributorsCtrl'
         });
-
+    
         $urlRouterProvider.otherwise('home');
+
+        
+        
+
+        $translateProvider.useStaticFilesLoader({
+          prefix: 'views/components/languages/',
+          suffix: '.json'
+        });
+        $translateProvider.preferredLanguage('en');
     }
 ]);
-app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout',
-    function ($scope, $state, FrontFact, $timeout) {
+app.controller('CompoundCtrl', ['$scope', '$state', '$timeout',
+    function ($scope, $state, $timeout) {
 
+
+    }
+]);
+app.controller('ContributorsCtrl', ['$scope', '$state', '$timeout',
+    function ($scope, $state, $timeout) {
+    	/* Change this url to github */
+		$scope.projectUrl = "https://github.com/BjarniLeifs/FSIM";    	
+
+		$scope.contributors = [
+			{
+				name  : 'Bjarni Kristján Leifsson',
+				email : 'bjarnil10@ru.is',
+				study : 'MSc Software Engineering',
+				school : 'Reykjavík University'
+			},
+			{
+				name  : 'Ísleifur Muggur Jónsson',
+				email : 'isleifur14@ru.is',
+				study : 'BSc Computer Science',
+				school : 'Reykjavík University'
+			},
+			{
+				name  : 'Jacky Mallett',
+				email : 'jacky@ru.is',
+				study : 'Phd Media Arts and Sciences',
+				school : 'Massachusetts Institute of Technology'
+			}
+
+		];
+    }
+]);
+app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout', '$translate',
+    function ($scope, $state, FrontFact, $timeout, $translate) {
+		/* Translator */
+		$scope.changeLanguage = function (key) {
+			$translate.use(key);
+		};
     	/* 
 
     		$scope.einn = FrontFact.einn():
@@ -56,15 +112,7 @@ app.factory('FrontFact', ['$http',
 app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout',
     function ($scope, $state, $timeout) {
 
-    	/* 
 
-    		$scope.einn = FrontFact.einn():
-
-		*/
-
-    	FrontFact.einn().then(function(response){
-    		$scope.einn = response.data;
-		});
 
     }
 ]);
