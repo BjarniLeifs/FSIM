@@ -1,28 +1,61 @@
 <div class="container">
-    <!-- Content Row -->
-    {{indexedLoan.AF}}
-    <input ng-model="test"></input>
-    {{test}} <br>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Heading 2</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-            <a class="btn btn-default" href="#">More Info</a>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4">
-            <h3>Heading 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-            <a class="btn btn-default" href="#">More Info</a>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4">
-            <h4>Heading 4</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-            <a class="btn btn-default" href="#">More Info</a>
-        </div>
-        <!-- /.col-md-4 -->
-    </div>
-    <!-- /.row -->
+
+
+<table class="table table-bordered" >
+    <thead>
+      <tr>
+      	<th>{{ 'indexedloan.paymentNumber' | translate }}</th>
+        <th>{{ 'indexedloan.dueDate' | translate }}</th>
+        <th>{{ 'indexedloan.principal' | translate }}</th>
+        <th>af</th>
+        <th>payment</th>
+        <th>capital</th>
+        <th>pay interest</th>
+        <th>ii</th>
+        <th>increase</th>
+        <th>total</th>
+        <th>total payment</th>
+        <th>total interest</th>
+        <th>inflation</th>
+        <th>p</th>
+        <th>interest</th>
+        <th>cpi</th>
+        <th>d</th>
+        <th>duration</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="obj in indexedLoan ">
+      	<td>{{obj.id}}</td>
+     	<td>{{obj.date | date:'dd.MM.yyyy'}}</td>
+        <td>{{obj.principal | number:0}} {{ 'indexedloan.currency' | translate }}</td>
+        <td>{{obj.af | number: 2}}</td>
+        <td>{{obj.payment | number: 0}}</td>
+        <td>{{obj.capital | number: 0}}</td>
+        <td>{{obj.payInterest | number: 0}}</td>
+        <td>{{obj.ii | number: 2}}</td>
+        <td>{{obj.increase | number: 0}}</td>
+        <td>{{obj.total | number: 0}}</td>
+        <td>{{obj.totalPayment | number: 0}}</td>
+        <td>{{obj.totalInterest | number: 5}}</td>
+        <td>{{obj.inflation | number: 2}}</td>
+        <td>{{obj.p | number: 0}}</td>
+        <td>{{obj.interest * 100 | number: 2}}</td>
+        <td>{{obj.cpi * 100| number: 2}}</td>
+        <td>{{obj.d | number:5}}</td>
+        <td>{{obj.duration | number: 0}}</td>
+      </tr>
+
+		
+			
+		
+
+		
+
+
+    </tbody>
+  </table>
+
 </div>

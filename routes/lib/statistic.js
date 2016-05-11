@@ -17,6 +17,10 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 	var payInterest = [];
 	var II 			= [];
 	var Increase 	= [];
+	var dates 		= [];
+
+	var returnObj   = [];
+
 	/* var control */
 	
 	var total 		  = 0;
@@ -26,8 +30,17 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 	/* iterator initialation*/
 	var it;
 
+	/* Date */
+	
+
+
+
 
 	for (it = 0; it < duration; it++) {
+		var CurrentDate = new Date();
+		CurrentDate.setMonth(CurrentDate.getMonth() + (it+1));
+
+		dates.push(CurrentDate);
 
 		AF.push((1/(D*Interest) - 1/((D*Interest) * Math.pow(1+D*Interest,duration-it))));
 
@@ -54,10 +67,33 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 		
 		total += capital[it];
 		totalPayment  += payment[it];
+
+		var object = {
+			"id"			: it + 1,
+			"date" 			: dates[it],
+			"duration"		: duration - 1 - it,
+			"p" 			: P[it],
+			"af"			: AF[it],
+			"payment"		: payment[it],
+			"capital"		: capital[it],
+			"payInterest" 	: payInterest[it],
+			"ii" 			: II[it],
+			"increase"		: Increase[it],
+			"total"			: total,
+			"totalPayment"	: totalPayment,
+			"totalInterest" : totalInterest,
+			"inflation"		: inflation,
+			"principal"		: Principal,
+			"interest"		: Interest,
+			"cpi"			: CPI,
+			"d"				: D 
+
+		}
+		returnObj.push(object);
 		
 	}
 	totalInterest = totalPayment - total;
-	
+
 	var objReturn = {
   		AF 				: {
   							Info  : "The Annuity factor",
@@ -122,10 +158,14 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 		D 				: {
   							Info  : "The base interest rate",
   							Value : D
-  						}
+  						},
+  	 	dates 			: {
+  	 						Info  : "The date object",
+  	 						Value : dates 
+  	 					}
 	};
 
 
-  	return objReturn;
+  	return returnObj;
 
 };

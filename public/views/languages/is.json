@@ -1,6 +1,14 @@
 {
 	"TITLE": "Hallo frá is.json",
 	"BUTTON_LANG_EN" : "enska",
-	"BUTTON_LANG_IS" : "íslenska"
-
+	"BUTTON_LANG_IS" : "íslenska",
+	"FRONTPAGE" : {
+		"TITLE": "Hello from is.json NESSTTTTING"
+	},
+	"indexedloan" : {
+		"paymentNumber" : "Afb.nr",
+		"currency" 	: "Kr",
+		"dueDate"	: "Gjalddagi",
+        "principal" : "Höfuðstóll"
+	}
 }

@@ -14,7 +14,7 @@ router.get('/indexloan', function(req, res, next) {
 	var Principal 	= 20800000;//req.body.principal,
 	var Interest 	= 0.0577;//req.body.interest,
 	var duration 	= 480;//req.body.duration,
-	var CPI 		= 0.0;//req.body.cpi;
+	var CPI 		= 0.1;//req.body.cpi;
 
 	var objReturn = statisticLib.indexloan(Principal, Interest, duration, CPI);
 	

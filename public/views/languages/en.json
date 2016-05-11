@@ -3,6 +3,12 @@
 	"BUTTON_LANG_IS" : "íslenska",
 	"FRONTPAGE" : {
 		"TITLE": "Hello from en.json NESSTTTTING"
+	},
+	"indexedloan" : {
+		"paymentNumber" : "Ins.num",
+		"currency" 		: "ISK",
+		"dueDate"		: "The due date",
+        "principal" 	: "Principal"
 	}
 	
 
