@@ -110,12 +110,28 @@ app.factory('FrontFact', ['$http',
 		};
 	}
 ]);
-app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout',
-    function ($scope, $state, $timeout) {
+app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
+    function ($scope, $state, $timeout, IndexedFact) {
 
+    	IndexedFact.getIndexedloan().then(function(response){
 
+    		$scope.indexedLoan =  response.data;
+
+		});
+		$scope.test;
 
     }
+]);
+/* FrontFactory */
+app.factory('IndexedFact', ['$http', 
+    function ($http) {
+    	
+    	return {
+    		getIndexedloan : function () {
+        		return $http.get('/statistic/indexloan');
+            }
+		};
+	}
 ]);
 app.controller('NavCtrl', ['$scope', '$state', 'FrontFact', '$timeout', '$translate',
     function ($scope, $state, FrontFact, $timeout, $translate) {
