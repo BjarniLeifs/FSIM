@@ -32,7 +32,7 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
     /* Translator configuration, files are in prefix path below*/
 
         $translateProvider.useStaticFilesLoader({
-          prefix: 'views/components/languages/',
+          prefix: 'views/languages/',
           suffix: '.json'
         });
 

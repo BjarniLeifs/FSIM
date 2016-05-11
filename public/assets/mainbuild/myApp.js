@@ -1,4 +1,4 @@
-/*! Made on 10-05-2016 */
+/*! Made on 11-05-2016 */
 /* Angular routing and app declaration */
 
 var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate']);
@@ -33,7 +33,7 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
     /* Translator configuration, files are in prefix path below*/
 
         $translateProvider.useStaticFilesLoader({
-          prefix: 'views/components/languages/',
+          prefix: 'views/languages/',
           suffix: '.json'
         });
 
