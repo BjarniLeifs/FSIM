@@ -1,4 +1,65 @@
 <div class="container">
+{{indexedLoan.AF}}
+    <input ng-model="Monthly salary before taxes: "></input>
+    <br>
+    {{Monthly salary before taxes:}} <br>
 
+    <div data-ng-app="" data-ng-init="youPercent;empPercent;mSalary;indexedFloat;indexedFixed;nonIndexedFloat;nonIndexedFixed;aPayment;ePayment;loanAmount;propertyValue;intresetRate;inflation">
+    	</div>
+
+    <h3>Salary and income</h3>
+
+Monthly salary before taxes: 
+	<input type="number" name="salary">
+		<br />
+		<br />
+
+
+Percentage of salary paid in pension:
+		<br />
+		<br />
+ 	You:
+ 	 <input type="number" name="youPercent"
+   	min="0" max="8" step="1" value="2">%
+		<br />
+		<br />
+Employer: <input type="number" name="empPercent"
+   min="0" max="8" step="1" value="2"> %
+
+		<br />
+		<br />
+
+<h3>Mortgage information</h3>
+		<br />
+	Loan type: <select>
+	  <option value="Indexed loan with floating rates">Indexed loan with floating rates</option>
+	  <option value="Indexed loan with fixed rates">
+	Indexed loan with fixed rates</option>
+	  <option value="Non-indexed loan with floating rates">
+	Non-indexed loan with floating rates
+	</option>
+	  <option value="Non-indexed loan with fixed rates">
+	Non-indexed loan with fixed rates</option>
+	</select>
+		<br />
+		<br />
+Payment type: <select>
+  <option value="aPayment">Annuity payments</option>
+  <option value="ePayment">Equal installment</option>
+			</select>
+			<br />
+			<br />
+Loan amount: <input type="number" name="loanAmount">
+			<br />
+			<br />
+		The properties market value: <input type="number" name="propertyValue">
+			<br />
+			<br />
+Interest rate: <input type="number" name="intresetRate">
+			<br />
+			<br />
+Inflation: <input type="number" name="inflation">
+			<br />
+			<br />
 
 </div>
