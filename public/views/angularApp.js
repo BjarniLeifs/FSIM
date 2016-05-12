@@ -1,6 +1,6 @@
 /* Angular routing and app declaration */
 
-var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate']);
+var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate', 'nvd3']);
 
 app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$translateProvider', 
     function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {

@@ -1,11 +1,12 @@
 {
 
-	
 	"headerNav" : {
 		"togglenNav" : "Opna og loka"
 	},
 	"index" : {
-		
+		"link1" : "Verðtryggð lán",
+		"link2" : "Óverðtryggð lán",
+		"link3"	: "Höfundar"
 	},
 	"frontpage" : {
 		"title": "Hallo from is.json" 

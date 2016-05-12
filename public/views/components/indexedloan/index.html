@@ -1,53 +1,43 @@
 <div class="container">
 
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>{{ 'indexedloan.paymentNumber' | translate }}</th>
+                    <th>{{ 'indexedloan.dueDate' | translate }}</th>
+                    <th>payment</th>
+                    <th>capital</th>
+                    <th>pay interest</th>
+                    <th>increase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obj in indexedLoan ">
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.date | date:'dd.MM.yyyy'}}</td>
+                    <td>{{obj.payment | number: 0}}</td>
+                    <td>{{obj.capital | number: 0}}</td>
+                    <td>{{obj.payInterest | number: 0}}</td>
+                    <td>{{obj.increase | number: 0}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <nvd3 options="indexedLoanOption" data="indexedLoanData"></nvd3>
+        <nvd3 options="intPayOption" data="intPaydata"></nvd3>
 
-<table class="table table-bordered" >
-    <thead>
-      <tr>
-      	<th>{{ 'indexedloan.paymentNumber' | translate }}</th>
-        <th>{{ 'indexedloan.dueDate' | translate }}</th>
-        <th>{{ 'indexedloan.principal' | translate }}</th>
-        <th>af</th>
-        <th>payment</th>
-        <th>capital</th>
-        <th>pay interest</th>
-        <th>ii</th>
-        <th>increase</th>
-        <th>total</th>
-        <th>total payment</th>
-        <th>total interest</th>
-        <th>inflation</th>
-        <th>p</th>
-        <th>interest</th>
-        <th>cpi</th>
-        <th>d</th>
-        <th>duration</th>
+    </div>
+</div>
+        
+ 
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="obj in indexedLoan ">
-      	<td>{{obj.id}}</td>
-     	<td>{{obj.date | date:'dd.MM.yyyy'}}</td>
-        <td>{{obj.principal | number:0}} {{ 'indexedloan.currency' | translate }}</td>
-        <td>{{obj.af | number: 2}}</td>
-        <td>{{obj.payment | number: 0}}</td>
-        <td>{{obj.capital | number: 0}}</td>
-        <td>{{obj.payInterest | number: 0}}</td>
-        <td>{{obj.ii | number: 2}}</td>
-        <td>{{obj.increase | number: 0}}</td>
-        <td>{{obj.total | number: 0}}</td>
-        <td>{{obj.totalPayment | number: 0}}</td>
-        <td>{{obj.totalInterest | number: 5}}</td>
-        <td>{{obj.inflation | number: 2}}</td>
-        <td>{{obj.p | number: 0}}</td>
-        <td>{{obj.interest * 100 | number: 2}}</td>
-        <td>{{obj.cpi * 100| number: 2}}</td>
-        <td>{{obj.d | number:5}}</td>
-        <td>{{obj.duration | number: 0}}</td>
-      </tr>
 
-    </tbody>
-  </table>
 
+
+<!--
+
+-->
 </div>

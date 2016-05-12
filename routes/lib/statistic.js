@@ -47,7 +47,7 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 		if (it == 0) {
 			II.push(100 + 100 * inflation);
 			P.push(Principal * II[0]/100);
-			Increase.push(P[0] - Principal);
+			Increase.push(P[0] - Principal + Principal);
 			
 		} else {
 

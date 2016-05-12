@@ -1,9 +1,12 @@
 {	
 	"headerNav" : {
-
+		"togglenNav" : "Toggle navigation"
 	},
 	"index" : {
-		"togglenNav" : "Toggle navigation"
+		
+		"link1" : "Indexedloan",
+		"link2" : "coumpoundloan",
+		"link3"	: "Contributors"
 	},
 	"frontpage" : {
 		"title" : "Hello from en.json" 
