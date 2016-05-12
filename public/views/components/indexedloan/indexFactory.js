@@ -11,7 +11,10 @@ app.factory('IndexedFact', ['$http',
             },
             getIndexedLoanP : function () {
             	return $http.get('/statistic/indexloanP'); 
-            }
+            },
+            getindexloanFinalResult : function () {
+                return $http.get('/statistic/indexloanFinalResult'); 
+            },
   
 			
 		};

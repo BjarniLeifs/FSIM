@@ -27,16 +27,7 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 	var totalPayment  = 0;
 	var totalInterest = 0;
 
-	/* iterator initialation*/
-	var it;
-
-	/* Date */
-	
-
-
-
-
-	for (it = 0; it < duration; it++) {
+	for (var it = 0; it < duration; it++) {
 		var CurrentDate = new Date();
 		CurrentDate.setMonth(CurrentDate.getMonth() + (it+1));
 
@@ -66,7 +57,9 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 		capital.push(payment[it] - payInterest[it]);
 		
 		total += capital[it];
-		totalPayment  += payment[it];
+		
+		totalInterest += payInterest[it];
+		totalPayment  += total - totalInterest;
 
 		var object = {
 			"id"			: it + 1,
@@ -100,102 +93,17 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 
 };
 
-exports.indexloanDate = function (princ, inter, dur, comPi) {
-	/* Vars that needs to have sent.*/
-	var Principal 	= princ;//req.body.principal,
-	var Interest 	= inter;//req.body.interest,
-	var duration 	= dur;//req.body.duration,
-	var CPI 		= comPi;//req.body.cpi;
-	var D = ((30.0)/(360.0));
-	var inflation = Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
+exports.indexloanDate = function (duration) {
 
 	/* Array to return later, keep track of things */
-	var AF 			= [];
-	var P 			= [];
-	var payment 	= [];
-	var capital 	= [];
-	var payInterest = [];
-	var II 			= [];
-	var Increase 	= [];
 	var dates 		= [];
 
-	var returnObj   = [];
-
-	/* var control */
-	
-	var total 		  = 0;
-	var totalPayment  = 0;
-	var totalInterest = 0;
-
-	/* iterator initialation*/
-	var it;
-
-	/* Date */
-	
-
-
-
-
-	for (it = 0; it < duration; it++) {
+	for (var it = 0; it < duration; it++) {
 		var CurrentDate = new Date();
 		CurrentDate.setMonth(CurrentDate.getMonth() + (it+1));
-
-		dates.push(""+CurrentDate+"");
-
-		AF.push((1/(D*Interest) - 1/((D*Interest) * Math.pow(1+D*Interest,duration-it))));
-
-		if (it == 0) {
-			II.push(100 + 100 * inflation);
-			P.push(Principal * II[0]/100);
-			Increase.push(P[0] - Principal);
-			
-		} else {
-
-			II.push(II[it-1] + II[it-1]*inflation);
-			P.push((P[it-1] - capital[it-1]) * II[it]/II[it-1]);
-
-			Increase.push((P[it-1] - capital[it-1]) * II[it]/II[it-1]) - (P[it-1] - capital[it-1]);
-
-		}
-
-
-		payment.push(P[it]/AF[it]);
-
-		payInterest.push(P[it] * Interest * D);
-		
-		capital.push(payment[it] - payInterest[it]);
-		
-		total += capital[it];
-		totalPayment  += payment[it];
-
-		var object = {
-			"id"			: it + 1,
-			"date" 			: dates[it],
-			"duration"		: duration - 1 - it,
-			"p" 			: P[it],
-			"af"			: AF[it],
-			"payment"		: payment[it],
-			"capital"		: capital[it],
-			"payInterest" 	: payInterest[it],
-			"ii" 			: II[it],
-			"increase"		: Increase[it],
-			"total"			: total,
-			"totalPayment"	: totalPayment,
-			"totalInterest" : totalInterest,
-			"inflation"		: inflation,
-			"principal"		: Principal,
-			"interest"		: Interest,
-			"cpi"			: CPI,
-			"d"				: D 
-
-		}
-		returnObj.push(object);
-		
+		dates.push(""+CurrentDate+"");		
 	}
-	totalInterest = totalPayment - total;
-
-
-
+	
   	return dates;
 
 };
@@ -217,6 +125,54 @@ exports.indexloanP = function (princ, inter, dur, comPi) {
 	var payInterest = [];
 	var II 			= [];
 	var Increase 	= [];
+	/* var control */
+	
+	var total 		  = 0;
+
+
+	for (var it = 0; it < duration; it++) {
+		AF.push((1/(D*Interest) - 1/((D*Interest) * Math.pow(1+D*Interest,duration-it))));
+
+		if (it == 0) {
+			II.push(100 + 100 * inflation);
+			P.push(Principal * II[0]/100);
+			Increase.push(P[0] - Principal);
+		} else {
+			II.push(II[it-1] + II[it-1]*inflation);
+			P.push((P[it-1] - capital[it-1]) * II[it]/II[it-1]);
+
+			Increase.push((P[it-1] - capital[it-1]) * II[it]/II[it-1]) - (P[it-1] - capital[it-1]);
+		}
+		payment.push(P[it]/AF[it]);
+
+		payInterest.push(P[it] * Interest * D);
+		
+		capital.push(payment[it] - payInterest[it]);
+		
+		total += capital[it];
+		
+	}
+
+  	return P;
+};
+
+exports.indexloanFinalResult = function (princ, inter, dur, comPi) {
+	/* Vars that needs to have sent.*/
+	var Principal 	= princ;//req.body.principal,
+	var Interest 	= inter;//req.body.interest,
+	var duration 	= dur;//req.body.duration,
+	var CPI 		= comPi;//req.body.cpi;
+	var D = ((30.0)/(360.0));
+	var inflation = Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
+
+	/* Array to return later, keep track of things */
+	var AF 			= [];
+	var P 			= [];
+	var payment 	= [];
+	var capital 	= [];
+	var payInterest = [];
+	var II 			= [];
+	var Increase 	= [];
 	var dates 		= [];
 
 	var returnObj   = [];
@@ -227,16 +183,7 @@ exports.indexloanP = function (princ, inter, dur, comPi) {
 	var totalPayment  = 0;
 	var totalInterest = 0;
 
-	/* iterator initialation*/
-	var it;
-
-	/* Date */
-	
-
-
-
-
-	for (it = 0; it < duration; it++) {
+	for (var it = 0; it < duration; it++) {
 		var CurrentDate = new Date();
 		CurrentDate.setMonth(CurrentDate.getMonth() + (it+1));
 
@@ -247,7 +194,7 @@ exports.indexloanP = function (princ, inter, dur, comPi) {
 		if (it == 0) {
 			II.push(100 + 100 * inflation);
 			P.push(Principal * II[0]/100);
-			Increase.push(P[0] - Principal);
+			Increase.push(P[0] - Principal + Principal);
 			
 		} else {
 
@@ -267,45 +214,46 @@ exports.indexloanP = function (princ, inter, dur, comPi) {
 		
 		total += capital[it];
 		totalPayment  += payment[it];
+		totalInterest += payInterest[it]
+		if (it == (duration - 1)) {
+			var object = {
+				"id"			: it + 1,
+				"date" 			: dates[it],
+				"duration"		: duration - 1 - it,
+				"p" 			: P[it],
+				"af"			: AF[it],
+				"payment"		: payment[it],
+				"capital"		: capital[it],
+				"payInterest" 	: payInterest[it],
+				"ii" 			: II[it],
+				"increase"		: Increase[it],
+				"total"			: total,
+				"totalPayment"	: total - totalInterest,
+				"totalInterest" : totalPayment - total,
+				"inflation"		: inflation,
+				"principal"		: Principal,
+				"interest"		: Interest,
+				"cpi"			: CPI,
+				"d"				: D 
 
-		var object = {
-			"id"			: it + 1,
-			"date" 			: dates[it],
-			"duration"		: duration - 1 - it,
-			"p" 			: P[it],
-			"af"			: AF[it],
-			"payment"		: payment[it],
-			"capital"		: capital[it],
-			"payInterest" 	: payInterest[it],
-			"ii" 			: II[it],
-			"increase"		: Increase[it],
-			"total"			: total,
-			"totalPayment"	: totalPayment,
-			"totalInterest" : totalInterest,
-			"inflation"		: inflation,
-			"principal"		: Principal,
-			"interest"		: Interest,
-			"cpi"			: CPI,
-			"d"				: D 
-
+			}
+			returnObj.push(object);
 		}
-		returnObj.push(object);
 		
 	}
 	totalInterest = totalPayment - total;
 
 
 
-  	return P;
+  	return returnObj;
 
 };
 
 
 
-
-
 /*
-
+	This was the first draft of return for exports.indexloan, turned out I had to change it for 
+	better object return.... nested arrays was way to hard to represent with angular as is.
 	var objReturn = {
   		AF 				: {
   							Info  : "The Annuity factor",

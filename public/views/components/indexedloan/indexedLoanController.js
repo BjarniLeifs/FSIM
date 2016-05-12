@@ -7,6 +7,10 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 		var interest = [];
 		var capital = [];
 		var orginalPrincipal = [];
+		if(true) {
+			var test = "blassss";
+		}
+		
 /* Calls to factory -> API  */
     	IndexedFact.getIndexedloan().then(function (response) {
     	 	$scope.indexedLoan = response.data;  
@@ -43,20 +47,28 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 		IndexedFact.getIndexedLoanP().then(function (loanP) {
 			//$scope.data = loanP.data;
 		});
+		IndexedFact.getindexloanFinalResult().then(function (results) {
+			$scope.loanResult = results.data;
+			console.log($scope.loanResult);
+		});
+		
 /* Indexedloan chart starts */
 		$scope.indexedLoanOption = {
+			/* Configuration of the chart*/
 		    chart: {
 		        type: 'lineChart',
 		        height: 400,
+		        /* similar to css on the chart */
 		        margin : {
 		            top: 20,
 		            right: 20,
 		            bottom: 40,
 		            left: 125
 		        },
+		        /* What the chart should be looking at in the object in data object*/
 		        x: function(d){ return d.x; },
 		        y: function(d){ return d.y; },
-
+		        /* More configuration on the chart */
 		        useInteractiveGuideline: true,
 		        dispatch: {
 		            stateChange: function(e){ console.log("stateChange"); },
@@ -78,16 +90,11 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 		        callback: function(chart){
 		            console.log("!!! lineChart callback !!!");
 		        }
-
-
-
-
-
-
 		    },
+		    /* Text to the chart */
 		    title: {
 		        enable: true,
-		        text: 'Title for Line Chart'
+		        text: test
 		    },
 		    subtitle: {
 		        enable: true,
@@ -106,6 +113,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 		        }
 		    }
 		};
+		/* Data object for the chart above2 */
 		$scope.indexedLoanData = [
 			{
 		        values: orginalPrincipal,

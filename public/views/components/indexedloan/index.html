@@ -1,6 +1,63 @@
 <div class="container">
 
 <div class="row">
+  <div class="col-md-6">.col-md-6</div>
+  <div class="col-md-6">
+  <table class="table table-striped" >
+            <thead>
+
+                <tr >
+                    <th class="idxLoanResultsTable" colspan="4">General information</th>
+            
+                </tr>
+            </thead>
+            <tbody ng-repeat="res in loanResult">
+                <tr>
+                    <td>Principal</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].principal | number: 0}}</td>
+                    <td>Interest rate</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].interest * 100 | number: 2}}% </td>
+
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].id / 12 | number: 0}}</td>
+                    <td>CPI</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].cpi * 100 | number: 2}}%</td>
+                </tr>
+                <tr>
+                    <td># payments</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].id | number: 0}}</td>
+                    <td>Inflation</td>
+                    <td class="idxLoanResultsTable">7.55%</td>
+                </tr>
+                <tr >
+                    <th class="idxLoanResutsTable" colspan="2"></th>
+                    <th class="idxLoanResultsTable" colspan="">Payment result</th>
+            
+                    <th class="idxLoanResultsTable" colspan=""> Ratio of Pricipal</th>
+                </tr>
+                <tr>
+                    <td colspan="2">Intrested payed</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].totalInterest | number: 0}}</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].totalInterest  / loanResult[0].principal| number: 2}} </td>
+                </tr>
+                                <tr>
+                    <td colspan="2"> total payment</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].totalPayment | number: 0}}</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].totalPayment / loanResult[0].principal| number: 2}}</td>
+                </tr>
+                </tr>
+                <tr>
+                    <td colspan="2">Total</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].total | number: 0}}</td>
+                    <td class="idxLoanResultsTable">{{loanResult[0].total / loanResult[0].principal| number: 2}}</td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+</div>
+<div class="row">
     <div class="col-md-6">
         <table class="table table-striped" >
             <thead>
