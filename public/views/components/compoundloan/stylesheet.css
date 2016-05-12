@@ -1,0 +1,12 @@
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+body {
+    background-color: lightblue;
+}
+
+h3 {
+    color: red;
+    margin-left: 20px;
+}
