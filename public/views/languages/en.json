@@ -6,10 +6,16 @@
 		
 		"link1" : "Indexedloan",
 		"link2" : "coumpoundloan",
-		"link3"	: "Contributors"
+		"link3"	: "Contributors",
+		"link4" : "frontpage"
 	},
 	"frontpage" : {
-		"title" : "Hello from en.json" 
+		"title" 			: "Hello from en.json",
+		"Project purpose"	: "Project purpose",
+		"about"				: "This website will show you the affects your pension has when used to pay down the capital of your mortgage.",
+		"abstract" 			: "In May 2014 the Icelandic government approved a new law allowing people to use their retirement fund to pay down parts of their mortgage. This way home owners can use their tax free pension payment to hopefully reduce the durantion and the capital of the loan they have. With this website we wanted to give people a visual feedback on how this affects their mortgage and further more a better understanding on their loan, its behaviour and what affects it. We've had this idea in the back of our minds for some time now and while attending the class Financial System Simulation we decided to execute the concept. Another motive for us was that this information was not available online and people could gennarlly not see what happened to their mortgage if they added extra payments. If you go to the website of the Icelandic banks you only get the usual data about the interests, monthly payments, etc. No further information is there regarding ecxess payments and their influence on the loan. So we decided to take matters in our own hands inform people on these important issues."
+
+
 	},
 	"indexedloan" : {
 		"paymentNumber" : "No",
@@ -24,8 +30,7 @@
         "total payment"	: "Total payment",
         "total interest": "Total interest",
         "inflation"		: "Inflatoin",
-        "duration"		: "Duration"
-       
+        "duration"		: "Duration"       
 	}
 	
 
