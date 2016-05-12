@@ -10,10 +10,20 @@
 	},
 
 	"indexedloan" : {
-		"paymentNumber" : "Ins.num",
+		"paymentNumber" : "No",
 		"currency" 		: "ISK",
-		"dueDate"		: "The due date",
+		"dueDate"		: "Date",
         "principal" 	: "Principal"
+        "payment"		: "Payment"
+        "capital"		: "Capital"
+        "pay interest" 	: "Paid interest"
+        "increase"		: "Balance"
+        "total"			: "Total"
+        "total payment"	: "Total payment"
+        "total interest": "Total interest"
+        "inflation"		: "Inflatoin"
+        "duration"		: "Duration"
+       
 	}
 	
 
