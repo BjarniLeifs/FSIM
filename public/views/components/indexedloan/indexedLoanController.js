@@ -1,5 +1,13 @@
 app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact','$filter',
     function ($scope, $state, $timeout, IndexedFact, $filter) {
+    	getIndexLoan();
+/* Scope vaiables declared */
+		$scope.indexedLoan = [];
+		$scope.principal = 20000000;
+		$scope.duration  = 480;
+		$scope.interest  = 5.5;
+		$scope.compound  = 5;
+
 /* Global used variables for graphs */
 		var log = [];
 		var payment = [];
@@ -10,12 +18,20 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 		if(true) {
 			var test = "blassss";
 		}
-		
+/* Functions */
+		$scope.checkLoan = function () {
+			 console.log($scope.principal)
+		}
+
+function getIndexLoan() {
+	 /* body... */ 
+
 /* Calls to factory -> API  */
     	IndexedFact.getIndexedloan().then(function (response) {
-    	 	$scope.indexedLoan = response.data;  
+    	 	var indexedLoan = response.data; 
+    	 	$scope.indexedLoan = response.data; 
     	 	console.log(response.data);  		
-            angular.forEach($scope.indexedLoan, function (value, key) {
+            angular.forEach(indexedLoan, function (value, key) {
             	var convertDate = $filter('date')(value.date, "yyyy-MM-dd");
 		  		log.push({
 		  			x : value.id, 
@@ -51,7 +67,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			$scope.loanResult = results.data;
 			console.log($scope.loanResult);
 		});
-		
+	}	
 /* Indexedloan chart starts */
 		$scope.indexedLoanOption = {
 			/* Configuration of the chart*/
