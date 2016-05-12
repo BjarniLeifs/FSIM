@@ -12,17 +12,17 @@
 		"title": "Hallo from is.json" 
 	},
 	"indexedloan" : {
-				"paymentNumber" : "Afb.nr",
-		"currency" 	: "Kr",
-		"dueDate"	: "Gjalddagi",
-        "principal" : "Höfuðstóll"
-        "payment"	: "Afborgun"
-     "pay interest" : "Greiddir vextir"
-     "increase"		: "Eftirstöðvar"
-      		"total"	: "Heildarkostnaður"
-    "total payment" : "Greiðslur alls"
-   "total interest"	: "Vextir alls"
-        "inflation"	: "Verðbólga"
-        "interest"	: "Vextir"
+		"paymentNumber" 	: "Afb.nr",
+		"currency" 			: "Kr",
+		"dueDate"			: "Gjalddagi",
+        "principal" 		: "Höfuðstóll",
+        "payment"			: "Afborgun",
+     	"pay interest" 		: "Greiddir vextir",
+     	"increase"			: "Eftirstöðvar",
+      	"total"				: "Heildarkostnaður",
+    	"total payment" 	: "Greiðslur alls",
+   		"total interest"	: "Vextir alls",
+        "inflation"			: "Verðbólga",
+        "interest"			: "Vextir"
 	}
 }
