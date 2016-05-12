@@ -11,7 +11,6 @@
 	"frontpage" : {
 		"title" : "Hello from en.json" 
 	},
-
 	"indexedloan" : {
 		"paymentNumber" : "No",
 		"currency" 		: "ISK",

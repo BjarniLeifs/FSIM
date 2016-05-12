@@ -13,21 +13,35 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
     	 	console.log(response.data);  		
             angular.forEach($scope.indexedLoan, function (value, key) {
             	var convertDate = $filter('date')(value.date, "yyyy-MM-dd");
-		  		log.push({x : value.id, y: Math.round(value.p), date: value.date});
-		  		payment.push({x: value.id, y: Math.round(value.payment), date: value.date});
-				dates.push({x: value.id, y: convertDate});
-				interest.push({x: value.id, y: Math.round(value.payInterest)});
-				capital.push({x: value.id, y: Math.round(value.capital)});
-				orginalPrincipal.push({x: value.id, y: value.principal});
-
-
-
-
+		  		log.push({
+		  			x : value.id, 
+		  			y: Math.round(value.p), date: value.date
+		  		});
+		  		payment.push({
+		  			x: value.id, 
+		  			y: Math.round(value.payment)
+		  		});
+				dates.push({
+					x: value.id, 
+					y: convertDate
+				});
+				interest.push({
+					x: value.id, 
+					y: Math.round(value.payInterest)
+				});
+				capital.push({
+					x: value.id, 
+					y: Math.round(value.capital)
+				});
+				orginalPrincipal.push({
+					x: value.id, 
+					y: value.principal
+				});
 
 			});
 		});
 		IndexedFact.getIndexedLoanP().then(function (loanP) {
-		//$scope.data = loanP.data;
+			//$scope.data = loanP.data;
 		});
 /* Indexedloan chart starts */
 		$scope.indexedLoanOption = {

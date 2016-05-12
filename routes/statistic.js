@@ -13,10 +13,24 @@ router.get('/indexloan', function(req, res, next) {
 	/* Vars that needs to have sent.*/
 	var Principal 	= 20800000;//req.body.principal,
 	var Interest 	= 0.0577;//req.body.interest,
-	var duration 	= 480;//req.body.duration,
+	var Duration 	= 480;//req.body.duration,
 	var CPI 		= 0.07;//req.body.cpi;
+	if (!req.body.principal | !req.body.principal <= 0)
+		Principal = 20000000;
+	else
+		Principal = req.body.principal;
 
-	var objReturn = statisticLib.indexloan(Principal, Interest, duration, CPI);
+	if (!req.body.interest | !req.body.interest <= 0)
+		Interest
+	else
+		Interest
+	if (!req.body.duration | !req.body.duration <= 0)
+
+	if (!req.body.cpi | !req.body.cpi <= 0)
+
+
+
+	var objReturn = statisticLib.indexloan(Principal, Interest, Duration, CPI);
 	
 
 
