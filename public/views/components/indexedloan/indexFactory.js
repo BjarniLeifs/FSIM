@@ -5,7 +5,15 @@ app.factory('IndexedFact', ['$http',
     	return {
     		getIndexedloan : function () {
         		return $http.get('/statistic/indexloan');
+            },
+            getIndexedLoanDate : function () {
+            	return $http.get('/statistic/indexloanDate'); 
+            },
+            getIndexedLoanP : function () {
+            	return $http.get('/statistic/indexloanP'); 
             }
+  
+			
 		};
 	}
 ]);

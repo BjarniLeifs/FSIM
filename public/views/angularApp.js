@@ -1,9 +1,9 @@
 /* Angular routing and app declaration */
 
-var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate', 'chart.js']);
+var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate']);
 
-app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$translateProvider', 'ChartJsProvider', 
-    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider, ChartJsProvider) {
+app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$translateProvider', 
+    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {
         $stateProvider
     /* Main page state starts */
         .state('home', {
@@ -40,14 +40,7 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
         $translateProvider.useSanitizeValueStrategy('escape');
 
     /* Angular charts defined option starts here*/
-        ChartJsProvider.setOptions({
-            chartColors: ['#FF5252', '#FF8A80'],
-            responsive: true
-        });
-        // Configure all line charts 
-        ChartJsProvider.setOptions('line', {
-            datasetFill: false
-        });
+
 
     }
 ]);

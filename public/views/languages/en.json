@@ -1,9 +1,14 @@
-{
-	"BUTTON_LANG_EN" : "enska",
-	"BUTTON_LANG_IS" : "íslenska",
-	"FRONTPAGE" : {
-		"TITLE": "Hello from en.json NESSTTTTING"
+{	
+	"headerNav" : {
+
 	},
+	"index" : {
+		"togglenNav" : "Toggle navigation"
+	},
+	"frontpage" : {
+		"title" : "Hello from en.json" 
+	},
+
 	"indexedloan" : {
 		"paymentNumber" : "Ins.num",
 		"currency" 		: "ISK",
@@ -11,6 +16,5 @@
         "principal" 	: "Principal"
 	}
 	
-
 
 }

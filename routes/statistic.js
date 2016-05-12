@@ -23,7 +23,32 @@ router.get('/indexloan', function(req, res, next) {
   	return res.status(200).json(objReturn);
 });
 
+router.get('/indexloanP', function(req, res, next) {
+	/* Vars that needs to have sent.*/
+	var Principal 	= 20800000;//req.body.principal,
+	var Interest 	= 0.0577;//req.body.interest,
+	var duration 	= 480;//req.body.duration,
+	var CPI 		= 0.1;//req.body.cpi;
 
+	var objReturn = statisticLib.indexloanP(Principal, Interest, duration, CPI);
+	
+
+
+  	return res.status(200).json(objReturn);
+});
+router.get('/indexloanDate', function(req, res, next) {
+	/* Vars that needs to have sent.*/
+	var Principal 	= 20800000;//req.body.principal,
+	var Interest 	= 0.0577;//req.body.interest,
+	var duration 	= 480;//req.body.duration,
+	var CPI 		= 0.1;//req.body.cpi;
+
+	var objReturn = statisticLib.indexloanDate(Principal, Interest, duration, CPI);
+	
+
+
+  	return res.status(200).json(objReturn);
+});
 
 
 module.exports = router;

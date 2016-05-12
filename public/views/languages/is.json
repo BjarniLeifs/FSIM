@@ -1,9 +1,14 @@
 {
-	"TITLE": "Hallo frá is.json",
-	"BUTTON_LANG_EN" : "enska",
-	"BUTTON_LANG_IS" : "íslenska",
-	"FRONTPAGE" : {
-		"TITLE": "Hello from is.json NESSTTTTING"
+
+	
+	"headerNav" : {
+		"togglenNav" : "Opna og loka"
+	},
+	"index" : {
+		
+	},
+	"frontpage" : {
+		"title": "Hallo from is.json" 
 	},
 	"indexedloan" : {
 		"paymentNumber" : "Afb.nr",

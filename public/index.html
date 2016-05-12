@@ -9,50 +9,45 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Verðtrygging lána</title>
-        <!-- Stylesheets -->
-        <!-- Bootstrap -->
+        <title>Put url here</title>
+        
+<!-- CSS ** Bootstrap -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="assets/css/adjustment.css" rel="stylesheet">
-        <!-- CSS for angular chart-->
-        <link href="/assets/js/angular-chart.js/dist/angular-chart.css" rel="stylesheet">
-        
-        <!-- Custom styles built from components of each side-->
+<!-- CSS ** nvd3 for charts --> 
+        <link rel="stylesheet" href="/assets/js/nvd3/build/nv.d3.css">
+<!-- CSS ** Custom addjustment overright for theme-->
+        <link href="assets/css/adjustment.css" rel="stylesheet">        
+<!-- CSS ** build from components of each HTML concated from grunt-->
         <link href="/assets/mainbuild/myApp.css" rel="stylesheet">
-            
-        <!-- !!!  Javascript  !!! -->
-        
-        <!-- Angular -->
+               
+<!-- JS ** Library for chart -->
+        <script src="/assets/js/d3/d3.js"></script>
+        <script src="/assets/js/nvd3/build/nv.d3.js"></script> 
+<!-- JS ** Angular -->
         <script src="/assets/js/angular/angular.min.js"></script>
-        <!-- Angular ui router -->
+<!-- JS ** Angular ui router -->
         <script src="/assets/js/angular-ui-router/release/angular-ui-router.js"></script>
-        <!-- Angular translate -->
+<!-- JS ** Angular translate -->
         <script src="/assets/js/angular-translate/dist/angular-translate.min.js"></script>
         <script src="/assets/js/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-        <!-- Chart.js library defined -->
-        <script src="/assets/js/Chart.js/Chart.js"></script>
-        <!-- Angular chart, needs to come after chart.js -->
-        <script src="/assets/js/angular-chart.js/dist/angular-chart.min.js"></script>
+<!-- JS ** Angular nvd3 for charts -->
+        <script src="/assets/js/angular-nvd3/dist/angular-nvd3.js"></script>
 
  
-        
-
     </head>
 
     <body ng-app="fsimApp">
-        <!-- Navigation Header -->
+<!-- Navigation Header -->
 
         <div ng-controller="NavCtrl" >
     
-
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container">
 
-                    <!-- Brand and toggle get grouped for better mobile display -->
+<!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toggle-navigation">
-                            <span class="sr-only">Toggle navigation</span>
+                            <span class="sr-only"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -64,7 +59,7 @@
                         </div>
 
                     </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
+<!-- Collect the nav links, forms, and other content for toggling -->
                     <div  class="collapse navbar-collapse" id="toggle-navigation">
                         <ul class="nav navbar-nav">
                             <li>
@@ -82,16 +77,17 @@
 
                 </div>
 
-                <!-- /.container -->
+<!-- /.container -->
             </nav>
     
         </div>
 
-        <!-- Page Content Starts with injection of Angularjs -->
+<!-- Page Content Starts with injection of Angularjs -->
         <div ui-view ></div>
-        <!-- Page Content Stops injection of Angularjs -->
+<!-- Page Content Stops injection of Angularjs -->
 
-        <!-- Footer starts
+<!-- Footer starts -
+
         <footer>
             <div class="row">
                 <div class="col-lg-12" id="footer-adjust">
@@ -99,14 +95,15 @@
                 </div>
             </div>
         </footer>
-        Footer Ends -->
+
+                   - Footer Ends -->
 
 
-        <!-- jQuery -->
+<!-- jQuery -->
         <script src="assets/js/jquery.js"></script>
-        <!-- Bootstrap Core JavaScript -->
+<!-- Bootstrap Core JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
-        <!-- Angular javascript file concat -->
+<!-- Angular javascript file concat -->
         <script src="/assets/mainbuild/myApp.js"></script>
 
     </body>
