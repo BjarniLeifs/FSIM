@@ -18,25 +18,40 @@
 
 	},
 	"indexedloan" : {
-		"paymentNumber" : "No",
-		"currency" 		: "ISK",
-		"dueDate"		: "Date",
-        "principal" 	: "Principal",
-        "payment"		: "Payment",
-        "capital"		: "Capital",
-        "pay interest" 	: "Paid interest",
-        "increase"		: "Balance",
-        "total"			: "Total",
-        "total payment"	: "Total payment",
-        "total interest": "Total interest",
-        "inflation"		: "Inflatoin",
-        "duration"		: "Duration",
-        "info"			: "Mortgage information",
-        "Kr"			: "ISK",
-        "durantion"    	: "Number of payments",
-        "interest"		: "Interests",
-        "compound"		: "Compound",
-        "button"		: "Calculate"
+		"paymentNumber" 	: "No",
+		"currency" 			: "ISK",
+		"dueDate"			: "Date",
+        "principal" 		: "Principal",
+        "payment"			: "Payment",
+        "capital"			: "Capital",
+        "pay interest" 		: "Paid interest",
+        "increase"			: "Balance",
+        "total"				: "Total",
+        "total payment"		: "Total payment",
+        "total interest"	: "Total interest",
+        "inflation"			: "Inflatoin",
+        "duration"			: "Duration",
+        "info"				: "Mortgage information",
+        "Kr"				: "ISK",
+        "ginfo"				: "General information",
+        "durantion"    		: "Number of payments",
+        "interest"			: "Interests",
+        "compound"			: "Compound",
+        "button"			: "Calculate",
+        "term"				: "Loan term in years",
+        "Payment result"	: "Payment overview",
+        "pay interest" 		: "Payed interest",
+        "term"				: "Term",
+       	"total payments" 	: "Total payment",
+       	"dueDate"			: "Due date",
+       	"increases"			: "Remainder",
+       	"afbA"				: "Total installment"
+
+
+
+
+
+
 
 
 
