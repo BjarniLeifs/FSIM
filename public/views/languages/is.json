@@ -10,9 +10,9 @@
 		"Link4" : "Forsíða"
 	},
 	"frontpage" : {
-		"title"				: "Hallo from is.json",
+		"title"				: "",
 		"Project purpose"	: "Tilgangur vefsíðunar",
-		"about"				: "Með þessari vefsíðu er reynt að sýna fram á þau áhrif sem skapast þegar séreignarsparnaður er nýttur til að greiða inn á húsnæðislán og um leið til að gera neytendur meðvitaðari um lán sín. Síðan leggur upp úr myndrænni framsetningu sem og tölulegum gögnum til þess að notandi sjái það á sem skýrastan máta. Einstaklingar geta fyllt út sínar viðeigandi upplýsingar og fengið útreikninga frá þeim. Hér til hliðar má svo sjá þau áhrif sem mismunandi verðbólga hefur á lán og þá upphæð sem greitt er tilbaka.",
+		"about"				: "Með þessari vefsíðu er reynt að sýna fram á þau áhrif sem skapast þegar séreignarsparnaður er nýttur til að greiða inn á húsnæðislán og um leið til að gera neytendur meðvitaðari um lán sín. Síðan leggur upp úr myndrænni framsetningu sem og tölulegum gögnum til þess að notandi sjái það á sem skýrastan máta. Einstaklingar geta fyllt út sínar viðeigandi upplýsingar og fengið útreikninga frá þeim. Hér til hliðar má svo sjá þau áhrif sem mismunandi verðbólga hefur á lán og þá upphæð sem greidd er tilbaka.",
 		"abstract"			: "Í maí 2014 ákvað íslenska ríkistjórnin að samþykkja lög sem veittu fólki heimild til þess nota séreigna- og lífeyrissparnað sinn til að greiða skattfrjálst niður húsnæðislán sín. Okkar hugmynd var að gefa fólki skýrari mynd af því sem gerist þegar þau nýta sér þetta fyrirkomulag. Við vorum búinn að ganga með þessa hugmynd í maganum í einhvern tíma en eftir að hafa sótt áfangann Financial System Simulation við Háskólann í Reykjavík ákváðum við að láta slag standa og útfæra þetta. Annar hvati fyrir hópinn var sá að útfærsla eins og þessi var hvergi aðgengileg fólki og því eflaust margir sem eiga erfitt með að átta sig hvort þetta sé yfirhöfuð hagkvæm lausn. Með þessari vefsíðu vonumst við til þess að fólk geti tekið meðvitaða ákvörðun um ráðstöfun séreignarsparnað síns og um leið öðlast meiri skilning á húsnæðisláni sínu."
 	},
 	"indexedloan" : {

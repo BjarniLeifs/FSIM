@@ -10,9 +10,9 @@
 		"link4" : "frontpage"
 	},
 	"frontpage" : {
-		"title" 			: "Hello from en.json",
+		"title" 			: "",
 		"Project purpose"	: "Project purpose",
-		"about"				: "This website will show you the affects your pension has when used to pay down the capital of your mortgage. We wanted to represent the data in both visual as well as statistical form. Users can fill out information and get calculations based on them. To left you can see a similar graph showing the diffrent effects inflation has on mortgages and the total installment.",
+		"about"				: "This website will show you the affects your pension has when used to pay down the capital of your mortgage. We wanted to represent the data in both visual as well as statistical form. Users can fill out information and get calculations based on them both displayed in a graph as well as numerically listed. To left you can see a similar graph showing the diffrent effects inflation has on mortgages and the total installment.",
 		"abstract" 			: "In May 2014 the Icelandic government approved a new law allowing people to use their retirement fund to pay down parts of their mortgage. This way home owners can use their tax free pension payment to hopefully reduce the durantion and the capital of the loan they have. With this website we wanted to give people a visual feedback on how this affects their mortgage and further more a better understanding on their loan, its behaviour and what affects it. We've had this idea in the back of our minds for some time now and while attending the class Financial System Simulation we decided to execute the concept. Another motive for us was that this information was not available online and people could gennarlly not see what happened to their mortgage if they added extra payments. If you go to the website of the Icelandic banks you only get the usual data about the interests, monthly payments, etc. No further information is there regarding ecxess payments and their influence on the loan. So we decided to take matters in our own hands inform people on these important issues."
 
 

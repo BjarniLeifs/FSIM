@@ -10,7 +10,7 @@ app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout', '$tran
 
 
 /* Global used variables for graphs */
-		var log = [];
+		var log  = [];
 		var log1 = [];
 		var log2 = [];
 		var log3 = [];
@@ -206,7 +206,7 @@ app.controller('FrontCtrl', ['$scope', '$state', 'FrontFact', '$timeout', '$tran
 			            tooltipHide: function(e){ console.log("tooltipHide"); }
 			        },
 			        xAxis: {
-			            axisLabel: 'Payment'
+			            axisLabel: "Payment"
 
 			        },
 			        yAxis: {
