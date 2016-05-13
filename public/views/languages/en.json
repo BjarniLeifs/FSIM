@@ -45,7 +45,8 @@
        	"total payments" 	: "Total payment",
        	"dueDate"			: "Due date",
        	"increases"			: "Remainder",
-       	"afbA"				: "Total installment"
+       	"afbA"				: "Total installment",
+        "ratio"             : "Payment ratio"
 
 
 
