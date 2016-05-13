@@ -2,38 +2,30 @@ var express = require('express');
 var router = express.Router();
 var statisticLib = require('../routes/lib/statistic');
 /* As is in the 1 phase of the development of the arcitecture, we have no callbacks ATM. */
-router.get('/einn', function(req, res, next) {
-
-	var ble = "2";
+router.post('/einn', function(req, res, next) {
+	console.log(req.body);
+	var ble = "5";
   	return res.status(200).json(ble);
 });
 
 
-router.get('/indexloan', function(req, res, next) {
+router.post('/indexloan', function(req, res, next) {
 	/* Vars that needs to have sent.*/
+	console.log(req.body);
 	var Principal, Interest, Duration, CPI;
+	if (!req.body.principal | !req.body.interest | !req.body.duration | !req.body.cpi )
+		return res.status(400).json({message: 'Please fill out all fields.'});
 
 	/* Choosing this way to ensure that there is allways some data returned */
 	
-	if (!req.body.principal | !req.body.principal <= 0)
-		Principal 	= 20000000;
-	else
+
 		Principal 	= req.body.principal;
 
-	if (!req.body.interest | !req.body.interest <= 0)
-		Interest 	= 0.0577
-	else
-		Interest 	= req.body.interest
-	
-	if (!req.body.duration | !req.body.duration <= 0)
-		Duration 	= 480
-	else
-		Duration 	= req.body.duration
-	
-	if (!req.body.cpi | !req.body.cpi <= 0)
-		CPI 		= 0.05;
-	else
-		CPI 		= req.body.cpi
+		Interest 	= req.body.interest / 100;
+
+		Duration 	= req.body.duration;
+
+		CPI 		= req.body.cpi / 100;
 
 	/* Calling into lib statistic.js for the data. */
 	var objReturn = statisticLib.indexloan(Principal, Interest, Duration, CPI);
@@ -41,41 +33,66 @@ router.get('/indexloan', function(req, res, next) {
   	return res.status(200).json(objReturn);
 });
 
-router.get('/indexloanP', function(req, res, next) {
-	/* Vars that needs to have sent.*/
-	var Principal 	= 20800000;//req.body.principal,
-	var Interest 	= 0.0577;//req.body.interest,
-	var duration 	= 480;//req.body.duration,
-	var CPI 		= 0.1;//req.body.cpi;
+router.post('/indexloanP', function(req, res, next) {
+	var Principal, Interest, Duration, CPI;
+	if (!req.body.principal | !req.body.interest | !req.body.duration | !req.body.cpi )
+		return res.status(400).json({message: 'Please fill out all fields.'});
 
-	var objReturn = statisticLib.indexloanP(Principal, Interest, duration, CPI);
+	/* Choosing this way to ensure that there is allways some data returned */
 	
 
+		Principal 	= req.body.principal;
 
+		Interest 	= req.body.interest / 100;
+
+		Duration 	= req.body.duration;
+
+		CPI 		= req.body.cpi / 100;
+
+	var objReturn = statisticLib.indexloanP(Principal, Interest, Duration, CPI);
+	
   	return res.status(200).json(objReturn);
 });
-router.get('/indexloanDate', function(req, res, next) {
-	/* Vars that needs to have sent.*/
-	var Principal 	= 20800000;//req.body.principal,
-	var Interest 	= 0.0577;//req.body.interest,
-	var duration 	= 480;//req.body.duration,
-	var CPI 		= 0.1;//req.body.cpi;
 
-	var objReturn = statisticLib.indexloanDate(Principal, Interest, duration, CPI);
+router.post('/indexloanDate', function(req, res, next) {
+	var Principal, Interest, Duration, CPI;
+	if (!req.body.principal | !req.body.interest | !req.body.duration | !req.body.cpi )
+		return res.status(405).json({message: 'Please fill out all fields.'});
+
+	/* Choosing this way to ensure that there is allways some data returned */
 	
 
+		Principal 	= req.body.principal;
+
+		Interest 	= req.body.interest / 100;
+
+		Duration 	= req.body.duration;
+
+		CPI 		= req.body.cpi / 100;
+
+	var objReturn = statisticLib.indexloanDate(Principal, Interest, Duration, CPI);
+	
   	return res.status(200).json(objReturn);
 });
-router.get('/indexloanFinalResult', function(req, res, next) {
-	/* Vars that needs to have sent.*/
-	var Principal 	= 20800000;//req.body.principal,
-	var Interest 	= 0.0577;//req.body.interest,
-	var duration 	= 480;//req.body.duration,
-	var CPI 		= 0.1;//req.body.cpi;
 
-	var objReturn = statisticLib.indexloanFinalResult(Principal, Interest, duration, CPI);
+router.post('/indexloanFinalResult', function(req, res, next) {
+	var Principal, Interest, Duration, CPI;
+	if (!req.body.principal | !req.body.interest | !req.body.duration | !req.body.cpi )
+		return res.status(400).json({message: 'Please fill out all fields.'});
+
+	/* Choosing this way to ensure that there is allways some data returned */
 	
 
+		Principal 	= req.body.principal;
+
+		Interest 	= req.body.interest / 100;
+
+		Duration 	= req.body.duration;
+
+		CPI 		= req.body.cpi / 100;
+
+	var objReturn = statisticLib.indexloanFinalResult(Principal, Interest, Duration, CPI);
+	
   	return res.status(200).json(objReturn);
 });
 

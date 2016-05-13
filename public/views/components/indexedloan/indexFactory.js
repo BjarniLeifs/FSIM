@@ -3,17 +3,21 @@ app.factory('IndexedFact', ['$http',
     function ($http) {
     	
     	return {
-    		getIndexedloan : function () {
-        		return $http.get('/statistic/indexloan');
+    		getIndexedloan : function (request) {
+                console.log(request);
+        		return $http.post('/statistic/indexloan',request);
             },
-            getIndexedLoanDate : function () {
-            	return $http.get('/statistic/indexloanDate'); 
+            getIndexedLoanDate : function (requet) {
+            	return $http.post('/statistic/indexloanDate',requet); 
             },
-            getIndexedLoanP : function () {
-            	return $http.get('/statistic/indexloanP'); 
+            getIndexedLoanP : function (req) {
+            	return $http.post('/statistic/indexloanP',req); 
             },
-            getindexloanFinalResult : function () {
-                return $http.get('/statistic/indexloanFinalResult'); 
+            getindexloanFinalResult : function (reque) {
+                return $http.post('/statistic/indexloanFinalResult',reque); 
+            },
+            einn : function (test) {
+                return $http.post('/statistic/einn',test); 
             },
   
 			

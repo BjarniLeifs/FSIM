@@ -4,6 +4,7 @@ var app = angular.module('fsimApp', ['ui.router', 'pascalprecht.translate', 'nvd
 
 app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$translateProvider', 
     function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {
+        $httpProvider.interceptors.push('authInterceptor');
         $stateProvider
     /* Main page state starts */
         .state('home', {

@@ -3,8 +3,8 @@ app.factory('FrontFact', ['$http',
     function ($http) {
     	
     	return {
-    		einn : function () {
-        		return $http.get('/statistic/einn');
+    		einn : function (test) {
+        		return $http.post('/statistic/einn', test);
             /*
                 .success(function (data) {
         		  return data;
