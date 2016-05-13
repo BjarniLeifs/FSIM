@@ -24,6 +24,12 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 /* Functions */
 
 		$scope.checkLoan = function () {
+			log = [];
+			payment = [];
+			dates = [];
+			interest = [];
+			capital = [];
+			orginalPrincipal = [];
 			var sendMe = {
 				principal : $scope.principal,
 				interest  : $scope.interest,
@@ -40,13 +46,8 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 
 /* Calls to factory -> API  */
 	    	IndexedFact.getIndexedloan(obj).then(function (response) {
-	    		log = [];
-				payment = [];
-				dates = [];
-				interest = [];
-				capital = [];
-				orginalPrincipal = [];
-	    	 	indexedLoan = response.data; 
+
+	    	 	var indexedLoan = response.data; 
 	    	 	$scope.indexedLoan = response.data; 
 	    	 	console.log(response.data);  		
 	            angular.forEach(indexedLoan, function (value, key) {
