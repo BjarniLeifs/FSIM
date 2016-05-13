@@ -30,7 +30,16 @@
         "total payment"	: "Total payment",
         "total interest": "Total interest",
         "inflation"		: "Inflatoin",
-        "duration"		: "Duration"       
+        "duration"		: "Duration",
+        "info"			: "Mortgage information",
+        "Kr"			: "ISK",
+        "durantion"    	: "Number of payments",
+        "interest"		: "Interests",
+        "compound"		: "Compound",
+        "button"		: "Calculate"
+
+
+
 	}
 	
 

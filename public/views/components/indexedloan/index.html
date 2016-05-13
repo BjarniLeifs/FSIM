@@ -23,20 +23,20 @@
 
 
             <!-- Form Name -->
-            <legend>General information</legend>
+            <legend>{{ 'indexedloan.info' | translate }}</legend>
 
             <!-- Appended Input-->
             <div class="form-group push-down">
                 <div class="col-md-6">
                     <div class="input-group">
-                        <span class="input-group-addon">principal</span>
+                        <span class="input-group-addon">{{ 'indexedloan.principal' | translate }}</span>
                         <input type="number" ng-model="principal" class="form-control input-sm" step="1" min="0">
-                        <span class="input-group-addon">Kr</span>
+                        <span class="input-group-addon">ISK</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="input-group">
-                        <span class="input-group-addon">duration</span>
+                        <span class="input-group-addon">{{ 'indexedloan.durantion' | translate }}</span>
                         <input ng-model="duration" class="form-control input-sm" type="number" step="1" min="0" max="480" />
                         <span class="input-group-addon">#</span>
                     </div>
@@ -46,7 +46,7 @@
             <div class="form-group push-down">
                 <div class="col-md-6">
                     <div class="input-group">
-                        <span class="input-group-addon">interest</span>
+                        <span class="input-group-addon">{{ 'indexedloan.interest' | translate }}</span>
                         <input type="number" ng-model="interest" class="form-control input-sm"  step="0.1" min="0" max="100" /> 
                         <span class="input-group-addon">%</span>
                     </div>
@@ -54,7 +54,7 @@
 
                 <div class="col-md-6">
                     <div class="input-group">
-                        <span class="input-group-addon">compound</span>
+                        <span class="input-group-addon">{{ 'indexedloan.compound' | translate }}</span>
                         <input ng-model="compound" class="form-control input-sm" type="number" step="0.1" min="0" max="100" />
                         <span class="input-group-addon">%</span>
                     </div>
@@ -63,7 +63,7 @@
             <!-- Button -->
             <div class="form-group push-down">
                 <div class="col-md-10">
-                    <button id="singlebutton" class="btn btn-default pull-right">Button</button>
+                    <button id="singlebutton" class="btn btn-default pull-right">{{ 'indexedloan.button' | translate }}</button>
                 </div>
             </div>
         </form>
@@ -73,12 +73,12 @@
 
         </div>
         <div class="col-md-6">
-        <legend>General information</legend>
+        <legend>{{ 'indexedloan.ginfo' | translate }}</legend>
             <table class="table table-striped" >
 
                 <tbody ng-repeat="res in loanResult">
                     <tr>
-                        <td>Principal</td>
+                        <td>{{ 'indexedloan.principal' | translate }}</td>
                         <td class="idxLoanResultsTable">{{loanResult[0].principal | number: 0}}</td>
                         <td>Interest rate</td>
                         <td class="idxLoanResultsTable">{{loanResult[0].interest * 100 | number: 2}}% </td>

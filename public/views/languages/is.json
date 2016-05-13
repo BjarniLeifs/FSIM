@@ -27,7 +27,14 @@
     	"total payment" 	: "Greiðslur alls",
    		"total interest"	: "Vextir alls",
         "inflation"			: "Verðbólga",
-        "interest"			: "Vextir"
-       
+        "interest"			: "Vextir",
+        "info"				: "Lána upplýsingar",
+        "Kr"				: "ISK",
+        "compound"			: "Compound",
+        "durantion"			: "Fjöldi afborgana",
+        "button"			: "Reikna",
+        "ginfo"				: "Almennar upplýsingar",
+        ""
+       	
 	}
 }
