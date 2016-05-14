@@ -7,6 +7,9 @@ app.factory('CompoundFact', ['$http',
                 console.log(request);
         		return $http.post('/compound/compoundloan',request);
             },
+            getCompoundFinalResult : function (reque) {
+                return $http.post('/compound/compoundLoanFinalResult',reque); 
+            },
   
 			
 		};

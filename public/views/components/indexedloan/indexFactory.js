@@ -13,12 +13,10 @@ app.factory('IndexedFact', ['$http',
             getIndexedLoanP : function (req) {
             	return $http.post('/indexed/indexloanP',req); 
             },
-            getindexloanFinalResult : function (reque) {
+            getIndexloanFinalResult : function (reque) {
                 return $http.post('/indexed/indexloanFinalResult',reque); 
             },
-            einn : function (test) {
-                return $http.post('/indexed/einn',test); 
-            },
+
   
 			
 		};

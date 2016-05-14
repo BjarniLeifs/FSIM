@@ -1,7 +1,7 @@
 app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact','$filter',
     function ($scope, $state, $timeout, IndexedFact, $filter) {
     	
-/* Scope vaiables declared */
+/* Scope variables declared */
 		$scope.indexedLoan 		= [];
 		$scope.sendLoanCheack 	= {};
 		$scope.principal 		= 20000000;
@@ -78,7 +78,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			IndexedFact.getIndexedLoanP(obj).then(function (loanP) {
 				//$scope.data = loanP.data;
 			});
-			IndexedFact.getindexloanFinalResult(obj).then(function (results) {
+			IndexedFact.getIndexloanFinalResult(obj).then(function (results) {
 				$scope.loanResult = results.data;
 
 			});

@@ -9,20 +9,20 @@
 
 
             <!-- Form Name -->
-            <legend>{{ 'indexedloan.info' | translate }}</legend>
+            <legend>Lána upplýsingar</legend>
 
             <!-- Appended Input-->
             <div class="form-group push-down">
                 <div class="col-md-6">
                     <div class="input-group">
-                        <span class="input-group-addon">{{ 'indexedloan.principal' | translate }}</span>
+                        <span class="input-group-addon">Höfuðstóll</span>
                         <input type="number" ng-model="principal" class="form-control input-sm" step="1" min="0">
                         <span class="input-group-addon">ISK</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="input-group">
-                        <span class="input-group-addon">{{ 'indexedloan.durantion' | translate }}</span>
+                        <span class="input-group-addon">Fjöldi afborgana</span>
                         <input ng-model="duration" class="form-control input-sm" type="number" step="1" min="0" max="480" />
                         <span class="input-group-addon">#</span>
                     </div>
@@ -30,25 +30,28 @@
             </div>
             <!-- Appended Input-->
             <div class="form-group push-down">
-                <div class="col-md-6">
+                <div class="col-md-10">
                     <div class="input-group">
-                        <span class="input-group-addon">{{ 'indexedloan.interest' | translate }}</span>
+                        <span class="input-group-addon">Vextir</span>
                         <input type="number" ng-model="interest" class="form-control input-sm"  step="0.01" min="0" max="100" /> 
                         <span class="input-group-addon">%</span>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    
+                </div>
             </div>
             <!-- Button -->
             <div class="form-group push-down">
-                <div class="col-md-10">
-                    <button id="singlebutton" class="btn btn-default pull-right">{{ 'indexedloan.button' | translate }}</button>
+                <div class="col-md-6">
+                    <button id="singlebutton" class="btn btn-default pull-right">Reikna</button>
                 </div>
             </div>
         </form>
 
         </div>
         <div class="col-md-6">
-        <legend>{{ 'indexedloan.ginfo' | translate }}</legend>
+        <legend>Almennar upplýsingar</legend>
             <table class="table table-striped" >
 
                 <tbody ng-repeat="res in loanResult">
@@ -56,20 +59,15 @@
                         <td>{{ 'indexedloan.principal' | translate }}</td>
                         <td class="idxLoanResultsTable">{{loanResult[0].principal | number: 0}}</td>
                         <td>{{ 'indexedloan.interest' | translate }}</td>
-                        <td class="idxLoanResultsTable">{{loanResult[0].interest * 100 | number: 2}}% </td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].interest  | number: 2}}% </td>
 
                     </tr>
                     <tr>
                         <td>{{ 'indexedloan.term' | translate }}</td>
-                        <td class="idxLoanResultsTable">{{loanResult[0].id / 12 | number: 0}}</td>
-                        <td>CPI</td>
-                        <td class="idxLoanResultsTable">{{loanResult[0].cpi * 100 | number: 2}}%</td>
-                    </tr>
-                    <tr>
+                        <td class="idxLoanResultsTable">{{loanResult[0].duration / 12 | number: 0}}</td>
                         <td>{{ 'indexedloan.durantion' | translate }}</td>
-                        <td class="idxLoanResultsTable">{{loanResult[0].id | number: 0}}</td>
-                        <td>{{ 'indexedloan.inflation' | translate }}</td>
-                        <td class="idxLoanResultsTable">7.55%</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].duration | number: 0}}</td>
+                        
                     </tr>
                     <tr >
                         <th class="idxLoanResutsTable" colspan="2"></th>
@@ -82,16 +80,21 @@
                         <td class="idxLoanResultsTable">{{loanResult[0].totalInterest | number: 0}}</td>
                         <td class="idxLoanResultsTable">{{loanResult[0].totalInterest  / loanResult[0].principal| number: 2}} </td>
                     </tr>
-                                    <tr>
+                    <tr>
                         <td colspan="2"> {{ 'indexedloan.afbA' | translate }}</td>
                         <td class="idxLoanResultsTable">{{loanResult[0].totalPayment | number: 0}}</td>
                         <td class="idxLoanResultsTable">{{loanResult[0].totalPayment / loanResult[0].principal| number: 2}}</td>
                     </tr>
+                    <tr>
+                        <td colspan="2"> Lagfæring uppsöfnun afborgana og vaxta</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].fraction | number: 0}}</td>
+                        <td class="idxLoanResultsTable"></td>
                     </tr>
+                  
                     <tr>
                         <td colspan="2">{{ 'indexedloan.total payments' | translate }}</td>
-                        <td class="idxLoanResultsTable">{{loanResult[0].total | number: 0}}</td>
-                        <td class="idxLoanResultsTable">{{loanResult[0].total / loanResult[0].principal| number: 2}}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].totalPayed | number: 0}}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].totalPayed / loanResult[0].principal| number: 2}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -102,18 +105,18 @@
             <table class="table table-striped" >
                 <thead>
                     <tr>
-                        <th>{{ 'indexedloan.paymentNumber' | translate }}</th>
-                        <th>{{ 'indexedloan.dueDate' | translate }}</th>
-                        <th>{{ 'indexedloan.payment' | translate }}</th>
-                        <th>{{ 'indexedloan.capital' | translate }}</th>
-                        <th>{{ 'indexedloan.pay interest' | translate }}</th>
-                        <th>{{ 'indexedloan.increases' | translate }}</th>
+                        <th>Nr</th>
+                        <th>Gjalddagi</th>
+                        <th>Greiðsla</th>
+                        <th>Afborgun</th>
+                        <th>Vextir</th>
+                        <th>Eftirstöðvar</th>
                         <th>Kostnaður</th>
-                        <th>Greiðsla alls</th>
+                        <th>Alls</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="obj in compound ">
+                    <tr ng-repeat="obj in compoundLoan ">
                         <td>{{obj.id}}</td>
                         <td>{{obj.date | date:'dd.MM.yyyy'}}</td>
                         <td>{{obj.payment | number: 0}}</td>
