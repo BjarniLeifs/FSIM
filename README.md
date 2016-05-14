@@ -8,10 +8,12 @@ Finanical system simulation
 
 	You will need to check if you have Node installed 
 		Goto terminal
+		
 		 	Type: node - v
+		
 		If node is not present goto nodes website, download node and install
 
-				https://nodejs.org/en/download/ 
+			https://nodejs.org/en/download/ 
 		
 		Note if you get an error by useing npm <command>, then use sudo.
 
