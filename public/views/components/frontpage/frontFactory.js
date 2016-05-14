@@ -4,7 +4,7 @@ app.factory('FrontFact', ['$http',
     	
     	return {
     		einn : function (test) {
-        		return $http.post('/statistic/einn', test);
+        		//return $http.post('/statistic/einn', test);
             /*
                 .success(function (data) {
         		  return data;

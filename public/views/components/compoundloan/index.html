@@ -1,71 +1,141 @@
-<head>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-
 <div class="container">
-{{indexedLoan.AF}}
-    <input ng-model="Monthly salary before taxes: "></input>
-    <br>
-    {{Monthly salary before taxes:}} <br>
-
-    <div data-ng-app="" data-ng-init="youPercent;empPercent;mSalary;indexedFloat;indexedFixed;nonIndexedFloat;nonIndexedFixed;aPayment;ePayment;loanAmount;propertyValue;intresetRate;inflation">
-    	</div>
+    <div class="row">
+        <div class="col-md-6">
 
 
 
-    <h3>Salary and income</h3>
 
-Monthly salary before taxes: 
-	<input type="number" name="salary">
-		<br />
-		<br />
+        <form class="form-inline" ng-submit="checkLoan()">
 
 
-Percentage of salary paid in pension:
-		<br />
-		<br />
- 	You:
- 	 <input type="number" name="youPercent"
-   	min="0" max="8" step="1" value="2">%
-		<br />
-		<br />
-Employer: <input type="number" name="empPercent"
-   min="0" max="8" step="1" value="2"> %
+            <!-- Form Name -->
+            <legend>{{ 'indexedloan.info' | translate }}</legend>
 
-		<br />
-		<br />
+            <!-- Appended Input-->
+            <div class="form-group push-down">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">{{ 'indexedloan.principal' | translate }}</span>
+                        <input type="number" ng-model="principal" class="form-control input-sm" step="1" min="0">
+                        <span class="input-group-addon">ISK</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">{{ 'indexedloan.durantion' | translate }}</span>
+                        <input ng-model="duration" class="form-control input-sm" type="number" step="1" min="0" max="480" />
+                        <span class="input-group-addon">#</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Appended Input-->
+            <div class="form-group push-down">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">{{ 'indexedloan.interest' | translate }}</span>
+                        <input type="number" ng-model="interest" class="form-control input-sm"  step="0.01" min="0" max="100" /> 
+                        <span class="input-group-addon">%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group push-down">
+                <div class="col-md-10">
+                    <button id="singlebutton" class="btn btn-default pull-right">{{ 'indexedloan.button' | translate }}</button>
+                </div>
+            </div>
+        </form>
 
-<h3>Mortgage information</h3>
-		<br />
-	Loan type: <select>
-	  <option value="Indexed loan with floating rates">Indexed loan with floating rates</option>
-	  <option value="Indexed loan with fixed rates">
-	Indexed loan with fixed rates</option>
-	  <option value="Non-indexed loan with floating rates">
-	Non-indexed loan with floating rates
-	</option>
-	  <option value="Non-indexed loan with fixed rates">
-	Non-indexed loan with fixed rates</option>
-	</select>
-		<br />
-		<br />
-Payment type: <select>
-  <option value="aPayment">Annuity payments</option>
-  <option value="ePayment">Equal installment</option>
-			</select>
-			<br />
-			<br />
-Loan amount: <input type="number" name="loanAmount">
-			<br />
-			<br />
-		The properties market value: <input type="number" name="propertyValue">
-			<br />
-			<br />
-Interest rate: <input type="number" name="intresetRate">
-			<br />
-			<br />
-Inflation: <input type="number" name="inflation">
-			<br />
-			<br />
+        </div>
+        <div class="col-md-6">
+        <legend>{{ 'indexedloan.ginfo' | translate }}</legend>
+            <table class="table table-striped" >
 
+                <tbody ng-repeat="res in loanResult">
+                    <tr>
+                        <td>{{ 'indexedloan.principal' | translate }}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].principal | number: 0}}</td>
+                        <td>{{ 'indexedloan.interest' | translate }}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].interest * 100 | number: 2}}% </td>
+
+                    </tr>
+                    <tr>
+                        <td>{{ 'indexedloan.term' | translate }}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].id / 12 | number: 0}}</td>
+                        <td>CPI</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].cpi * 100 | number: 2}}%</td>
+                    </tr>
+                    <tr>
+                        <td>{{ 'indexedloan.durantion' | translate }}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].id | number: 0}}</td>
+                        <td>{{ 'indexedloan.inflation' | translate }}</td>
+                        <td class="idxLoanResultsTable">7.55%</td>
+                    </tr>
+                    <tr >
+                        <th class="idxLoanResutsTable" colspan="2"></th>
+                        <th class="idxLoanResultsTable" colspan="">{{ 'indexedloan.Payment result' | translate }}</th>
+                        <th class="idxLoanResultsTable" colspan="">{{ 'indexedloan.ratio' | translate }}</th>
+                
+                    </tr>
+                    <tr>
+                        <td colspan="2">{{ 'indexedloan.pay interest' | translate }}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].totalInterest | number: 0}}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].totalInterest  / loanResult[0].principal| number: 2}} </td>
+                    </tr>
+                                    <tr>
+                        <td colspan="2"> {{ 'indexedloan.afbA' | translate }}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].totalPayment | number: 0}}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].totalPayment / loanResult[0].principal| number: 2}}</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{{ 'indexedloan.total payments' | translate }}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].total | number: 0}}</td>
+                        <td class="idxLoanResultsTable">{{loanResult[0].total / loanResult[0].principal| number: 2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>{{ 'indexedloan.paymentNumber' | translate }}</th>
+                        <th>{{ 'indexedloan.dueDate' | translate }}</th>
+                        <th>{{ 'indexedloan.payment' | translate }}</th>
+                        <th>{{ 'indexedloan.capital' | translate }}</th>
+                        <th>{{ 'indexedloan.pay interest' | translate }}</th>
+                        <th>{{ 'indexedloan.increases' | translate }}</th>
+                        <th>Kostnaður</th>
+                        <th>Greiðsla alls</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="obj in compound ">
+                        <td>{{obj.id}}</td>
+                        <td>{{obj.date | date:'dd.MM.yyyy'}}</td>
+                        <td>{{obj.payment | number: 0}}</td>
+                        <td>{{obj.capital | number: 0}}</td>
+                        <td>{{obj.interest | number: 0}}</td>
+                        <td>{{obj.principalLeft | number: 0}}</td>
+                        <td>{{obj.bankFee | number: 0}}</td>
+                        <td>{{obj.totalPayment | number: 0}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <nvd3 options="indexedLoanOption" data="indexedLoanData"></nvd3>
+            <nvd3 options="intPayOption" data="intPaydata"></nvd3>
+
+        </div>
+    </div>
+            
+    
+
+    <!--
+
+    -->
 </div>

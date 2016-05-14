@@ -10,9 +10,7 @@ app.controller('NavCtrl', ['$scope', '$state', 'FrontFact', '$timeout', '$transl
 
 		*/
 
-    	FrontFact.einn().then(function(response){
-    		$scope.einn = response.data;
-		});
+
 
     }
 ]);
