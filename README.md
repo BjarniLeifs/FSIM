@@ -1,29 +1,42 @@
 # FSIM
 Finanical system simulation
 
-# FSIM
-Finanical system simulation
+#### How to use!
+	This project uses nodejs, angularjs, grunt, node and nodemon. Follow these instruction to setup the project. 
 
-*First you need to clone this project
+	Start by cloning the project and read this readme.me
 
-*Secondly you need to check if you have Node installed
-	- goto terminal and type: node-v
-	- if node not presend goto https://nodejs.org/en/download/ and download node
-	-install nodejs
+	You will need to check if you have Node installed 
+		Goto terminal
+		 	Type: node - v
+		If node is not present goto nodes website, download node and install
 
-note: if error install npm, you need to use sude npm
-* next you need to install nodemon
-	-type: npm install nodemon -g
+				https://nodejs.org/en/download/ 
+		
+		Note if you get an error by useing npm <command>, then use sudo.
 
-*then install grunt
-	-type: npm install grunt -g
-	-type: npm install grunt-cli -g
+		Now since node is installed you can install nodemon
+			
+			Type: npm install nodemon -g
 
-*in root project folder 
-	-type: npm install
+		Now we need to install grunt and grunt-cli 
+			
+			Type: npm install grunt -g
+			Type: npm install grunt-cli -g
 
-*to start the project
-	-type: grunt
 
-*now the project is runnin on port 3000
-	-goto brower, url: http://localhost:3000
+	Now the main things should be installed to run the project. 
+
+	Now go into the folder you cloned, it should be named FSIM, in there we need to install dependancy. 
+
+		Type: npm install
+
+	After this the only thing that you should need to do is to be at FSIM folder.
+
+		Type: grunt
+
+	At this point you should get message in terminal that the server is up and running at port 3000.
+
+	Go to browser : http://localhost:3000
+
+	Your'e done! 
