@@ -5,8 +5,8 @@ app.factory('authInterceptor', function ($rootScope, $q, $window) {
 	return {
 		request: function (config) {
 			config.headers = config.headers || {};
-			if ($window.localStorage['appToken']) {
-				config.headers.Authorization = 'Bearer ' +  $window.localStorage['appToken'];
+			if ($window.localStorage['FSIM']) {
+				config.headers.Authorization = 'Bearer ' +  $window.localStorage['FSIM'];
 			}
 			return config;
 		},

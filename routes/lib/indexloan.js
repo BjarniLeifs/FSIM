@@ -1,31 +1,52 @@
 var exports = module.exports = {};
 
+
+/*    Information about indexedloan variables
+
+  		AF 	          ->  Info  : "The Annuity factor",
+		P 	          ->  Info  : "The adjusted principal, used for calculation of interest ",
+		payment       ->  Info  : "The payment of the laon",
+		capital       ->  Info  : "The captial, with inflation",
+		payInterest   ->  Info  : "Interest actually payed",
+		II 			  ->  Info  : "Calculation variable",
+		Increase 	  ->  Info  : "Increase in capital",
+		total 		  ->  Info  : "The total capital of the loan",
+		totalPayment  ->  Info  : "The total payment over the loan period",
+		totalInterest ->  Info  : "The total interest over the loan period",
+		inflation 	  ->  Info  : "The inflation over the loan period",
+		Principal 	  ->  Info  : "The principal of the loan ",
+		Interest 	  ->  Info  : "The interest rate of the loan",
+		duration 	  ->  Info  : "The duration of the loan",
+		CPI 	      ->  Info  : "The compound interest",
+		D 			  ->  Info  : "The base interest rate",
+  	 	dates 		  ->  Info  : "The date object",
+*/
+
+/* All result of indexloan calculation */
 exports.indexloan = function (princ, inter, dur, comPi) {
-	/* Vars that needs to have sent.*/
-	var Principal 	= princ;//req.body.principal,
-	var Interest 	= inter;//req.body.interest,
-	var duration 	= dur;//req.body.duration,
-	var CPI 		= comPi;//req.body.cpi;
-	var D = ((30.0)/(360.0));
-	var inflation = Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
+/* Vars that needs to have sent. */
+	var Principal 		= princ;	//req.body.principal,
+	var Interest 		= inter;	//req.body.interest,
+	var duration 		= dur;		//req.body.duration,
+	var CPI 			= comPi;	//req.body.cpi;
+	var D 				= ((30.0)/(360.0));
+	var inflation 		= Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
 
-	/* Array to return later, keep track of things */
-	var AF 			= [];
-	var P 			= [];
-	var payment 	= [];
-	var capital 	= [];
-	var payInterest = [];
-	var II 			= [];
-	var Increase 	= [];
-	var dates 		= [];
+/* Array to return later, keep track of things */
+	var AF 				= [];
+	var P 				= [];
+	var payment 		= [];
+	var capital 		= [];
+	var payInterest 	= [];
+	var II 				= [];
+	var Increase 		= [];
+	var dates 			= [];
 
-	var returnObj   = [];
+	var returnObj   	= [];
 
-	/* var control */
-	
-	var total 		  = 0;
-	var totalPayment  = 0;
-	var totalInterest = 0;
+	var total 		  	= 0;
+	var totalPayment  	= 0;
+	var totalInterest 	= 0;
 
 	for (var it = 0; it < duration; it++) {
 		var CurrentDate = new Date();
@@ -56,10 +77,11 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 		
 		capital.push(payment[it] - payInterest[it]);
 		
-		total += capital[it];
-		
-		totalInterest += payInterest[it];
-		totalPayment  += total - totalInterest;
+
+		total 			+= capital[it];
+		totalInterest 	+= payInterest[it];
+		totalPayment  	+= total - totalInterest;
+
 
 		var object = {
 			"id"			: it + 1,
@@ -82,20 +104,19 @@ exports.indexloan = function (princ, inter, dur, comPi) {
 			"d"				: D 
 
 		}
+
 		returnObj.push(object);
 		
 	}
 	totalInterest = totalPayment - total;
 
-
-
   	return returnObj;
 
 };
-
+/* Dates for x duration */
 exports.indexloanDate = function (duration) {
 
-	/* Array to return later, keep track of things */
+/* Array to return later, keep track of things */
 	var dates 		= [];
 
 	for (var it = 0; it < duration; it++) {
@@ -107,17 +128,17 @@ exports.indexloanDate = function (duration) {
   	return dates;
 
 };
-
+/* P of the indexloan */
 exports.indexloanP = function (princ, inter, dur, comPi) {
-	/* Vars that needs to have sent.*/
-	var Principal 	= princ;//req.body.principal,
-	var Interest 	= inter;//req.body.interest,
-	var duration 	= dur;//req.body.duration,
-	var CPI 		= comPi;//req.body.cpi;
-	var D = ((30.0)/(360.0));
-	var inflation = Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
+/* Vars that needs to have sent.*/
+	var Principal 	= princ;	//req.body.principal,
+	var Interest 	= inter;	//req.body.interest,
+	var duration 	= dur;		//req.body.duration,
+	var CPI 		= comPi;	//req.body.cpi;
+	var D 			= ((30.0)/(360.0));
+	var inflation 	= Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
 
-	/* Array to return later, keep track of things */
+/* Array to return later, keep track of things */
 	var AF 			= [];
 	var P 			= [];
 	var payment 	= [];
@@ -125,9 +146,9 @@ exports.indexloanP = function (princ, inter, dur, comPi) {
 	var payInterest = [];
 	var II 			= [];
 	var Increase 	= [];
-	/* var control */
+
 	
-	var total 		  = 0;
+	var total 		= 0;
 
 
 	for (var it = 0; it < duration; it++) {
@@ -155,33 +176,31 @@ exports.indexloanP = function (princ, inter, dur, comPi) {
 
   	return P;
 };
-
+/* Last result of the loan returned. */
 exports.indexloanFinalResult = function (princ, inter, dur, comPi) {
-	/* Vars that needs to have sent.*/
-	var Principal 	= princ;//req.body.principal,
-	var Interest 	= inter;//req.body.interest,
-	var duration 	= dur;//req.body.duration,
-	var CPI 		= comPi;//req.body.cpi;
-	var D = ((30.0)/(360.0));
-	var inflation = Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
+/* Vars that needs to have sent.*/
+	var Principal 		= princ;	//req.body.principal,
+	var Interest 		= inter;	//req.body.interest,
+	var duration 		= dur;		//req.body.duration,
+	var CPI 			= comPi;	//req.body.cpi;
+	var D 				= ((30.0)/(360.0));
+	var inflation 		= Math.pow((1.0 + CPI ),(1.0/12.0)) - 1;
 
-	/* Array to return later, keep track of things */
-	var AF 			= [];
-	var P 			= [];
-	var payment 	= [];
-	var capital 	= [];
-	var payInterest = [];
-	var II 			= [];
-	var Increase 	= [];
-	var dates 		= [];
+/* Array to return later, keep track of things */
+	var AF 				= [];
+	var P 				= [];
+	var payment 		= [];
+	var capital 		= [];
+	var payInterest 	= [];
+	var II 				= [];
+	var Increase 		= [];
+	var dates 			= [];
 
-	var returnObj   = [];
-
-	/* var control */
+	var returnObj   	= [];
 	
-	var total 		  = 0;
-	var totalPayment  = 0;
-	var totalInterest = 0;
+	var total 		  	= 0;
+	var totalPayment  	= 0;
+	var totalInterest 	= 0;
 
 	for (var it = 0; it < duration; it++) {
 		var CurrentDate = new Date();
@@ -207,14 +226,13 @@ exports.indexloanFinalResult = function (princ, inter, dur, comPi) {
 
 
 		payment.push(P[it]/AF[it]);
-
 		payInterest.push(P[it] * Interest * D);
-		
 		capital.push(payment[it] - payInterest[it]);
 		
-		total += capital[it];
-		totalPayment  += payment[it];
-		totalInterest += payInterest[it]
+		total 			+= capital[it];
+		totalPayment  	+= payment[it];
+		totalInterest 	+= payInterest[it]
+/* Only looking for the last data */
 		if (it == (duration - 1)) {
 			var object = {
 				"id"			: it + 1,
@@ -243,88 +261,14 @@ exports.indexloanFinalResult = function (princ, inter, dur, comPi) {
 	}
 	totalInterest = totalPayment - total;
 
-
-
   	return returnObj;
-
 };
 
 
 
-/*
-	This was the first draft of return for exports.indexloan, turned out I had to change it for 
-	better object return.... nested arrays was way to hard to represent with angular as is.
-	var objReturn = {
-  		AF 				: {
-  							Info  : "The Annuity factor",
-  							Value : AF
-  						},
-		P 				: {
-  							Info  : "The adjusted principal, used for calculation of interest ",
-  							Value : P
-  						},			
-		payment 		: {
-  							Info  : "The payment of the laon",
-  							Value : payment
-  						},
-		capital 		: {
-  							Info  : "The captial, with inflation",
-  							Value : capital
-  						},
-		payInterest 	: {
-  							Info  : "Interest actually payed",
-  							Value : payInterest
-  						},
-		II 				: {
-  							Info  : "Calculation variable",
-  							Value : II
-  						},
-		Increase 		: {
-  							Info  : "Increase in capital",
-  							Value : Increase
-  						},
-		total 			: {
-  							Info  : "The total capital of the loan",
-  							Value : total
-  						},
-		totalPayment 	: {
-  							Info  : "The total payment over the loan period",
-  							Value : totalPayment
-  						},
-		totalInterest	: {
-  							Info  : "The total interest over the loan period",
-  							Value : totalInterest
-  						},
-		inflation 		: {
-  							Info  : "The inflation over the loan period",
-  							Value : inflation
-  						},
-		Principal 		: {
-  							Info  : "The principal of the loan ",
-  							Value : Principal
-  						},
-		Interest 		: {
-  							Info  : "The interest rate of the loan",
-  							Value : Interest
-  						},
-		duration 		: {
-  							Info  : "The duration of the loan",
-  							Value : duration
-  						},
-		CPI 			: {
-  							Info  : "The compound interest",
-  							Value : CPI
-  						},
-		D 				: {
-  							Info  : "The base interest rate",
-  							Value : D
-  						},
-  	 	dates 			: {
-  	 						Info  : "The date object",
-  	 						Value : dates 
-  	 					}
-	};
 
 
 
-*/
+
+
+
