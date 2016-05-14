@@ -1,16 +1,16 @@
 var exports = module.exports = {};
 
 
-exports.compoundLoan = function () {
+exports.compoundLoan = function (duration, principal, interest) {
 /* 
 	Crosse refrenced with Arionbanki, there is a difference, 120 kr, and
 	that is the extra fee the bank takes 
 */
 
 /* Main input of the calculation for compound loan*/
-		var duration  	 = 480;
-		var principal 	 = 16100000;
-		var interestrate = 7.05;
+		var duration  	 = duration;
+		var principal 	 = principal;
+		var interestrate = interest;
 		var Q;
 /* Calculation of montly interest*/
 		var J 			 = (interestrate / 12) / 100 ;
@@ -27,7 +27,7 @@ exports.compoundLoan = function () {
 		var returnMe 	 = [];
 /* Payment */
 		var M = P * (J/(1 - Math.pow(1 + J, N * -1)));
-		for (var i = 0; i < duration + 1; i++) {
+		for (var i = 0; i < duration ; i++) {
 /* Monthly Interest */			
 			H = P * J;
 /* Captial repayment */					
@@ -42,18 +42,20 @@ exports.compoundLoan = function () {
 			princ.push(P);
 
 			P = Q;
-
 			var object = {
-				"duration"  	 : duration - 1 - i,
+				"duration"  	 : duration - i,
 				"startPrincipal" : principal,
 				"interestRate" 	 : interestrate,
 				"id" 			 : step[i],
-				"capital"  		 : capital[i],
-				"interest" 		 : interest[i],
-				"payment" 	     : payment[i],
-				"principal"      : princ[i],
+				"capital"  		 : Math.floor(capital[i]),
+				"interest" 		 : Math.floor(interest[i]),
+				"payment" 	     : Math.floor(payment[i]),
+				"principal"      : Math.floor(princ[i]),
 				"j"				 : J,
-				"P" 			 : P
+				"PrincipalLeft"  : Math.floor(P),
+				"bankFee"		 : 120,
+				"totalPayment" 	 : Math.floor(payment[i] + 120),
+
 			}
 			returnMe.push(object);
 		}
