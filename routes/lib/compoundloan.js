@@ -29,8 +29,11 @@ exports.compoundLoan = function (duration, principal, interest) {
 		var dummyPrinc 	 = 0;
 /* Payment */
 		var M = P * (J/(1 - Math.pow(1 + J, N * -1)));
-		for (var i = 0; i < duration ; i++) {
+
+
+		for (var i = 0; i < duration; i++) {
 			var CurrentDate = new Date();
+			var firstDate = new Date();
 			CurrentDate.setMonth(CurrentDate.getMonth() + (i+1));
 			dates.push(CurrentDate);
 /* Monthly Interest */			
@@ -46,34 +49,33 @@ exports.compoundLoan = function (duration, principal, interest) {
 			step.push(i);
 			princ.push(P);
 
-			P = Q;
-			if (Math.floor(P) < 0)
-				dummyPrinc = 0;
-			else
+			
+		P = Q;	
+			if (P > 0)
 				dummyPrinc = Math.floor(P);
+			else
+				dummyPrinc = 0;
 
-			var object = {
-				"duration"  	 : duration - i,
-				"startPrincipal" : principal,
-				"interestRate" 	 : interestrate,
-				"id" 			 : step[i] + 1,
-				"date" 			 : dates[i],
-				"capital"  		 : Math.floor(capital[i]),
-				"interest" 		 : Math.floor(interest[i]),
-				"payment" 	     : Math.floor(payment[i]),
-				"principal"      : Math.floor(princ[i]),
-				"j"				 : J,
-				"principalLeft"  : dummyPrinc,
-				"bankFee"		 : 120,
-				"totalPayment" 	 : Math.floor(payment[i] + 120),
+			
+				var object = {
+					"duration"  	 : duration - i - 1,
+					"startPrincipal" : principal,
+					"interestRate" 	 : interestrate,
+					"id" 			 : step[i] + 1,
+					"date" 			 : dates[i],
+					"capital"  		 : Math.floor(capital[i]),
+					"interest" 		 : Math.floor(interest[i]),
+					"payment" 	     : Math.floor(payment[i]),
+					"principal"      : Math.floor(princ[i]),
+					"j"				 : J,
+					"principalLeft"  : dummyPrinc,
+					"bankFee"		 : 120,
+					"totalPayment" 	 : Math.floor(payment[i] + 120),
 
-			}
-			returnMe.push(object);
+				}
+				returnMe.push(object);
+			
 		}
-
-
-
-
 	
   	return returnMe;
 

@@ -50,7 +50,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			  		
 			  		log.push({
 			  			x : value.id, 
-			  			y : Math.round(value.p), date: value.date
+			  			y : Math.round(value.p)
 			  		});
 			  		payment.push({
 			  			x : value.id, 
