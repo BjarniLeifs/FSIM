@@ -52,6 +52,18 @@ app.controller('CompoundCtrl', ['$scope', '$state', '$timeout', 'CompoundFact', 
 			  			x : value.id, 
 			  			y : value.principalLeft,
 			  		});
+			  		payment.push({
+			  			x : value.id, 
+			  			y : Math.round(value.payment)
+			  		});
+					interest.push({
+						x : value.id, 
+						y : Math.round(value.interest)
+					});
+					capital.push({
+						x : value.id, 
+						y : Math.round(value.capital)
+					});
 				});
 
 
@@ -72,7 +84,7 @@ app.controller('CompoundCtrl', ['$scope', '$state', '$timeout', 'CompoundFact', 
 /* similar to css on the chart */
 			        margin  : {
 			            top 	: 20,
-			            right 	: 30,
+			            right 	: 20,
 			            bottom 	: 40,
 			            left 	: 115
 			        },
@@ -88,9 +100,9 @@ app.controller('CompoundCtrl', ['$scope', '$state', '$timeout', 'CompoundFact', 
 			            tooltipHide: function(e){ console.log("tooltipHide"); }
 			        },
 			        xAxis: {
-			            axisLabel: 'afborgun',
+			            axisLabel: 'Number of payments',
 			            tickFormat: function(d){
-			                return d3.format("0,000")(d);
+			                return d3.format(",d")(d);
 			            },
 
 			        },
@@ -108,16 +120,18 @@ app.controller('CompoundCtrl', ['$scope', '$state', '$timeout', 'CompoundFact', 
 /* Text to the chart */
 			    title: {
 			        enable: true,
+			        text: "Compound Loan"
 			
 			    },
 			    subtitle: {
 			        enable 	: true,
-			        text 	: 'Subtitle for simple line chart. Lorem ipsum dolor sit amet, at eam blandit sadipscing, vim adhuc sanctus disputando ex, cu usu affert alienum urbanitas.',
+			        text 	: 'This chart shows the principal of Compound loan.',
 			        css 	: {
 			            'text-align': 'center',
 			            'margin'	: '10px 13px 0px 7px'
 			        }
 			    },
+			    /*
 			    caption: {
 			        enable 	: true,
 			        html 	: '<b>Figure 1.</b> Lorem ipsum dolor sit amet, at eam blandit sadipscing, <span style="text-decoration: underline;">vim adhuc sanctus disputando ex</span>, cu usu affert alienum urbanitas. <i>Cum in purto erat, mea ne nominavi persecuti reformidans.</i> Docendi blandit abhorreant ea has, minim tantas alterum pro eu. <span style="color: darkred;">Exerci graeci ad vix, elit tacimates ea duo</span>. Id mel eruditi fuisset. Stet vidit patrioque in pro, eum ex veri verterem abhorreant, id unum oportere intellegam nec<sup>[1, <a href="https://github.com/krispo/angular-nvd3" target="_blank">2</a>, 3]</sup>.',
@@ -126,6 +140,7 @@ app.controller('CompoundCtrl', ['$scope', '$state', '$timeout', 'CompoundFact', 
 			            'margin'	: '10px 13px 0px 7px'
 			        }
 			    }
+			    */
 			};
 /* Data object for the chart above */
 			$scope.CompoundLoanData = [
@@ -139,26 +154,89 @@ app.controller('CompoundCtrl', ['$scope', '$state', '$timeout', 'CompoundFact', 
 			];
 /* Indexedloan chart ends */
 
+/* Interest and payment chart starts */
 
+        
+			$scope.intPayOption = {
+			    chart: {
+			        type 	: 'lineChart',
+			        height 	: 400,
+			        margin  : {
+			            top 	: 20,
+			            right 	: 20,
+			            bottom 	: 40,
+			            left 	: 115
+			        },
+			        x: function(d){ return d.x; },
+			        y: function(d){ return d.y; },
 
+			        useInteractiveGuideline: true,
+			        dispatch: {
+			            stateChange: function(e){ console.log("stateChange"); },
+			            changeState: function(e){ console.log("changeState"); },
+			            tooltipShow: function(e){ console.log("tooltipShow"); },
+			            tooltipHide: function(e){ console.log("tooltipHide"); }
+			        },
+			        xAxis: {
+			            axisLabel: 'Number of payments'
+			        },
+			        yAxis: {
+			            axisLabel: '',
+			            tickFormat: function(d){
+			                return d3.format("0,000")(d);
+			            },
+			            axisLabelDistance: -10
+			        },
+			        callback: function(chart){
+			            console.log("!!! lineChart callback !!!");
+			        }
 
+			    },
+			    title: {
+			        enable 	: true,
+			        text 	: 'Payment on principal, interest and total payment.'
+			    },
+			    subtitle: {
+			        enable 	: true,
+			        text 	: "This chart shows how the payment is on Compound Loan",
+			        css 	: {
+			            'text-align': 'center',
+			            'margin': '20px 13px 0px 7px'
+			        }
+			    },
+			    /*
+			    caption: {
+			        enable 	: true,
+			        html 	: '<b>Figure 1.</b> Lorem ipsum dolor sit amet, at eam blandit sadipscing, <span style="text-decoration: underline;">vim adhuc sanctus disputando ex</span>, cu usu affert alienum urbanitas. <i>Cum in purto erat, mea ne nominavi persecuti reformidans.</i> Docendi blandit abhorreant ea has, minim tantas alterum pro eu. <span style="color: darkred;">Exerci graeci ad vix, elit tacimates ea duo</span>. Id mel eruditi fuisset. Stet vidit patrioque in pro, eum ex veri verterem abhorreant, id unum oportere intellegam nec<sup>[1, <a href="https://github.com/krispo/angular-nvd3" target="_blank">2</a>, 3]</sup>.',
+			        css 	: {
+			            'text-align': 'justify',
+			            'margin': '10px 13px 0px 7px'
+			        }
+			    }
+			    */
+			};
+			$scope.intPaydata = [
 
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
+	            {
+	                values 	: interest,
+	                key 	: 'vextir', 
+	                color 	: '#b30000',
+	                area 	: true 
+	            },
+	            {
+	                values  : capital,
+	                key 	: 'innborgun', 
+	                color 	: '#0000ff',
+	                area 	: true 
+	            },
+	            {
+	                values 	: payment,
+	                key 	: 'afborgun', 
+	                color 	: '#29a329',
+	                area 	: true 
+	            },
+			];
+		}
 
 	}
 ]);

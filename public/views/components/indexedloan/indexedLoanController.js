@@ -110,7 +110,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			            tooltipHide: function(e){ console.log("tooltipHide"); }
 			        },
 			        xAxis: {
-			            axisLabel: 'afborgun'
+			            axisLabel: 'Number of payments'
 
 			        },
 			        yAxis: {
@@ -127,16 +127,17 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 /* Text to the chart */
 			    title: {
 			        enable: true,
-			
+					text: "Indexed Loan"
 			    },
 			    subtitle: {
 			        enable 	: true,
-			        text 	: 'Subtitle for simple line chart. Lorem ipsum dolor sit amet, at eam blandit sadipscing, vim adhuc sanctus disputando ex, cu usu affert alienum urbanitas.',
+			        text 	: 'This chart shows the principal of Indexed loan.',
 			        css 	: {
 			            'text-align': 'center',
 			            'margin'	: '10px 13px 0px 7px'
 			        }
 			    },
+			    /*
 			    caption: {
 			        enable 	: true,
 			        html 	: '<b>Figure 1.</b> Lorem ipsum dolor sit amet, at eam blandit sadipscing, <span style="text-decoration: underline;">vim adhuc sanctus disputando ex</span>, cu usu affert alienum urbanitas. <i>Cum in purto erat, mea ne nominavi persecuti reformidans.</i> Docendi blandit abhorreant ea has, minim tantas alterum pro eu. <span style="color: darkred;">Exerci graeci ad vix, elit tacimates ea duo</span>. Id mel eruditi fuisset. Stet vidit patrioque in pro, eum ex veri verterem abhorreant, id unum oportere intellegam nec<sup>[1, <a href="https://github.com/krispo/angular-nvd3" target="_blank">2</a>, 3]</sup>.',
@@ -145,6 +146,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			            'margin'	: '10px 13px 0px 7px'
 			        }
 			    }
+			    */
 			};
 /* Data object for the chart above */
 			$scope.indexedLoanData = [
@@ -174,7 +176,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			            top 	: 20,
 			            right 	: 20,
 			            bottom 	: 40,
-			            left 	: 125
+			            left 	: 115
 			        },
 			        x: function(d){ return d.x; },
 			        y: function(d){ return d.y; },
@@ -187,7 +189,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			            tooltipHide: function(e){ console.log("tooltipHide"); }
 			        },
 			        xAxis: {
-			            axisLabel: 'afborgun'
+			            axisLabel: 'Number of payments'
 			        },
 			        yAxis: {
 			            axisLabel: '',
@@ -203,16 +205,17 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			    },
 			    title: {
 			        enable 	: true,
-			        text 	: 'Title for Line Chart'
+			        text 	: 'Payment, interest and total payment.'
 			    },
 			    subtitle: {
 			        enable 	: true,
-			        text 	: 'Subtitle for simple line chart. Lorem ipsum dolor sit amet, at eam blandit sadipscing, vim adhuc sanctus disputando ex, cu usu affert alienum urbanitas.',
+			        text 	: "This chart shows how the payment is on indexed loan",
 			        css 	: {
 			            'text-align': 'center',
-			            'margin': '10px 13px 0px 7px'
+			            'margin': '20px 13px 0px 7px'
 			        }
 			    },
+			    /*
 			    caption: {
 			        enable 	: true,
 			        html 	: '<b>Figure 1.</b> Lorem ipsum dolor sit amet, at eam blandit sadipscing, <span style="text-decoration: underline;">vim adhuc sanctus disputando ex</span>, cu usu affert alienum urbanitas. <i>Cum in purto erat, mea ne nominavi persecuti reformidans.</i> Docendi blandit abhorreant ea has, minim tantas alterum pro eu. <span style="color: darkred;">Exerci graeci ad vix, elit tacimates ea duo</span>. Id mel eruditi fuisset. Stet vidit patrioque in pro, eum ex veri verterem abhorreant, id unum oportere intellegam nec<sup>[1, <a href="https://github.com/krispo/angular-nvd3" target="_blank">2</a>, 3]</sup>.',
@@ -221,6 +224,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			            'margin': '10px 13px 0px 7px'
 			        }
 			    }
+			    */
 			};
 			$scope.intPaydata = [
 
