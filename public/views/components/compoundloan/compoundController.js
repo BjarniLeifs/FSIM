@@ -41,7 +41,7 @@ app.controller('CompoundCtrl', ['$scope', '$state', '$timeout', 'CompoundFact', 
 
        			var compoundLoan = response.data;
        			$scope.compoundLoan = response.data;
-       			console.log(response.data);
+
        			log.push({
 			  			x : 0, 
 			  			y : Math.round($scope.principal),

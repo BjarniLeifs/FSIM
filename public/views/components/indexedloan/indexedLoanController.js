@@ -80,6 +80,7 @@ app.controller('IndexedLoanCtr', ['$scope', '$state', '$timeout', 'IndexedFact',
 			});
 			IndexedFact.getIndexloanFinalResult(obj).then(function (results) {
 				$scope.loanResult = results.data;
+				
 
 			});
 			loadIndexLoan();

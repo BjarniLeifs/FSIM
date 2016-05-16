@@ -4,7 +4,6 @@ app.factory('IndexedFact', ['$http',
     	
     	return {
     		getIndexedloan : function (request) {
-                console.log(request);
         		return $http.post('/indexed/indexloan',request);
             },
             getIndexedLoanDate : function (requet) {
