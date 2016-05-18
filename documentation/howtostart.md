@@ -1,4 +1,6 @@
-#### How to use!
+# How to use!
+
+
 	This project uses nodejs, angularjs, grunt, node and nodemon. Follow these instruction to setup the project. 
 
 	Start by cloning the project and read this file.
