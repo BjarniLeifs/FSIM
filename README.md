@@ -1,5 +1,4 @@
-# FSIM
-Finanical system simulation
+# Finanical system simulation
 
 #### How to use!
 	This project uses nodejs, angularjs, grunt, node and nodemon. Follow these instruction to setup the project. 
