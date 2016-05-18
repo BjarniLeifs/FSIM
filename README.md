@@ -6,6 +6,9 @@ First of why do we have API rather than doing all the calculation client site. T
 
 **Feel free to contribute to this project, we only accept pull request to this project.**
 
+## Other. 
+
+About comments in the code, some are truly redundant, however there are few new to node.js, angular and so on that will be using this project to learn on the framework, there for it is found to be there. 
 
 
 ## Links in the documentation and more. 
