@@ -1,7 +1,7 @@
 #### How to use!
 	This project uses nodejs, angularjs, grunt, node and nodemon. Follow these instruction to setup the project. 
 
-	Start by cloning the project and read this readme.me
+	Start by cloning the project and read this file.
 
 	You will need to check if you have Node installed 
 		Goto terminal
