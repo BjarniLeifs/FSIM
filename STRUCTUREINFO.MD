@@ -1,4 +1,5 @@
-| FSIM								* Root of the project.
+'''
+.
 |
 |-- bin				
 |    -- www							* Create of server and other things related to it. 
