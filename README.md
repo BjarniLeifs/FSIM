@@ -50,6 +50,8 @@
 |-- bin				
 |    -- www							* Create of server and other things related to it. 
 |
+|-- documentation 					* All documents related to the project should go here
+|
 |-- node_modules					* node installed dependancy for the project. ( npm install )
 | 									
 |--	public 							* FRONT END OF THE PROJECT IS ALL HERE. 
