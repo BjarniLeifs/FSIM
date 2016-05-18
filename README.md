@@ -4,7 +4,7 @@ Please start by looking How to setup link to set up the project. All links can b
 
 First of why do we have API rather than doing all the calculation client site. The reason is that we want the project to be open to anyone that wants to use it, therefore we found it to be best to have calculation server site rather then client, for that reasone everyone that wants to get this information to there website or smart device in app. There is no other reason for that. 
 
-Feel free to contribute to this project, we only accept pull request to this project.
+**Feel free to contribute to this project, we only accept pull request to this project.**
 
 
 
