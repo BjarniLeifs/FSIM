@@ -9,16 +9,11 @@ Feel free to contribute to this project, we only accept pull request to this pro
 
 
 
-[How to setup!](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/howtostart.md)
+Here you get step by step [How to setup!](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/howtostart.md) the project.
 
-Here you can see where things are and little information on each component of the structure. 
+Here you can see where things are and little information on each component of the structure. [Folder structure](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/foldersturcture.MD)
 
-[Folder structure](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/foldersturcture.MD)
+Information about the calculation of the indexed linked loans can be found here. [Indexed linked loans](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/indexedloan.md)
 
-Information about the calculation of the indexed linked loans can be found here.
+Information about the caluculation of the compound loan can be found here. [Compound loan](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/compoundlaon.md)
 
-[Indexed linked loans](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/indexedloan.md)
-
-Information about the caluculation of the compound loan can be found here.
-
-[Compound loan](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/compoundlaon.md)
