@@ -8,6 +8,7 @@ Feel free to contribute to this project, we only accept pull request to this pro
 
 
 
+## Links in the documentation and more. 
 
 Here you get step by step [How to setup!](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/howtostart.md) the project.
 
