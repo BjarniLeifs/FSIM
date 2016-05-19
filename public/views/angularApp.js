@@ -26,6 +26,10 @@ app.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', '$http
             url: '/contributors',
             templateUrl: 'views/components/contributors/index.html',
             controller: 'ContributorsCtrl'
+        }).state('pension', {
+            url: '/pension',
+            templateUrl: 'views/components/pension/index.html',
+            controller: 'PensionCtrl'
         });
     
         $urlRouterProvider.otherwise('home');

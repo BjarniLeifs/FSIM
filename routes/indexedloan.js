@@ -83,5 +83,45 @@ router.post('/indexloanFinalResult', function(req, res, next) {
 });
 
 
+router.post('/indexloanPayDownPrincipal', function(req, res, next) {
+	var Principal, Interest, Duration, CPI, payDownLoan;
+	if (!req.body.principal | !req.body.interest | !req.body.duration | !req.body.cpi | !req.body.payDown)
+		return res.status(400).json({message: 'Please fill out all fields.'});
+
+/* Choosing this way to ensure that there is allways some data returned */
+
+	Principal 	= req.body.principal;
+	Interest 	= req.body.interest / 100;
+	Duration 	= req.body.duration;
+	CPI 		= req.body.cpi / 100;
+	payDownLoan = req.body.payDown;
+
+/* Calling into lib statistic.js for the data. */
+	var objReturn = indexLib.indexloanPayDownPrincipal(Principal, Interest, Duration, CPI, payDownLoan);
+	
+  	return res.status(200).json(objReturn);
+});
+router.post('/indexloanPayDownPrincipalFinalResult', function(req, res, next) {
+	var Principal, Interest, Duration, CPI, payDownLoan;
+	if (!req.body.principal | !req.body.interest | !req.body.duration | !req.body.cpi | !req.body.payDown)
+		return res.status(400).json({message: 'Please fill out all fields.'});
+
+/* Choosing this way to ensure that there is allways some data returned */
+
+	Principal 	= req.body.principal;
+	Interest 	= req.body.interest / 100;
+	Duration 	= req.body.duration;
+	CPI 		= req.body.cpi / 100;
+	payDownLoan = req.body.payDown;
+
+/* Calling into lib statistic.js for the data. */
+	var objReturn = indexLib.indexloanPayDownPrincipalFinalResult(Principal, Interest, Duration, CPI, payDownLoan);
+	
+  	return res.status(200).json(objReturn);
+});
+
+
+
+
 module.exports = router;
 

@@ -152,14 +152,90 @@ exports.compoundLoanFinalResult = function (duration, principal, interest) {
 			}
 		}
 
-
-
-
-	
   	return returnMe;
 
 };
 
+exports.compoundLoanPayToPrincipal = function (duration, principal, interest, payDown) {
+/* 
+	Crosse refrenced with Arionbanki, there is a difference, 120 kr, and
+	that is the extra fee the bank takes 
+*/
+
+/* Main input of the calculation for compound loan*/
+		var duration  	 	 = duration;
+		var principal 		 = principal;
+		var interestrate 	 = interest;
+		var payDownPrincipal = payDown;
+		var Q;
+/* Calculation of montly interest*/
+		var J 			 = (interestrate / 12) / 100 ;
+/* Setup for calculation */
+		var N 			 = duration;
+		var P 			 = principal;
+/* Array for results of calculation */
+		var capital   	 = [];
+		var interest 	 = [];
+		var payment  	 = [];
+		var step     	 = [];
+		var princ    	 = [];
+		var dates 		 = [];
+/* Return object */
+		var returnMe 	 = [];
+		var dummyPrinc 	 = 0;
+/* Payment */
+		var M = P * (J/(1 - Math.pow(1 + J, N * -1)));
+
+
+		for (var i = 0; i < duration; i++) {
+			var CurrentDate = new Date();
+			var firstDate = new Date();
+			CurrentDate.setMonth(CurrentDate.getMonth() + (i+1));
+			dates.push(CurrentDate);
+/* Monthly Interest */			
+			H = P * J;
+/* Captial repayment */					
+    		C = M - H;
+/* New capital balance */
+    		Q = P - C - payDownPrincipal;
+/* Collecting information to arrays */
+			capital.push(C);
+			interest.push(H);
+			payment.push(M);
+			step.push(i);
+			princ.push(P);
+
+			
+		P = Q;	
+			if (P > 0)
+				dummyPrinc = Math.floor(P);
+			else
+				dummyPrinc = 0;
+
+			
+				var object = {
+					"duration"  	 : duration - i - 1,
+					"startPrincipal" : principal,
+					"interestRate" 	 : interestrate,
+					"id" 			 : step[i] + 1,
+					"date" 			 : dates[i],
+					"capital"  		 : Math.floor(capital[i]),
+					"interest" 		 : Math.floor(interest[i]),
+					"payment" 	     : Math.floor(payment[i]),
+					"principal"      : Math.floor(princ[i]),
+					"j"				 : J,
+					"principalLeft"  : dummyPrinc,
+					"bankFee"		 : 120,
+					"totalPayment" 	 : Math.floor(payment[i] + 120),
+
+				}
+				returnMe.push(object);
+			
+		}
+	
+  	return returnMe;
+
+};
 
 
 

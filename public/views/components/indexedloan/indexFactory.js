@@ -6,17 +6,21 @@ app.factory('IndexedFact', ['$http',
     		getIndexedloan : function (request) {
         		return $http.post('/indexed/indexloan',request);
             },
-            getIndexedLoanDate : function (requet) {
-            	return $http.post('/indexed/indexloanDate',requet); 
+            getIndexedLoanDate : function (request) {
+            	return $http.post('/indexed/indexloanDate',request); 
             },
-            getIndexedLoanP : function (req) {
-            	return $http.post('/indexed/indexloanP',req); 
+            getIndexedLoanP : function (request) {
+            	return $http.post('/indexed/indexloanP',request); 
             },
-            getIndexloanFinalResult : function (reque) {
-                return $http.post('/indexed/indexloanFinalResult',reque); 
+            getIndexloanFinalResult : function (request) {
+                return $http.post('/indexed/indexloanFinalResult',request); 
             },
-
-  
+            getIndexloanPaydown : function (request) {
+                return $http.post('/indexed/indexloanPayDownPrincipal',request); 
+            },
+            getIndexloanPaydownFinalResult : function (request) {
+                return $http.post('/indexed/indexloanPayDownPrincipalFinalResult',request); 
+            },
 			
 		};
 	}

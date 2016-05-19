@@ -1,0 +1,138 @@
+<div class="container">
+<!-- Graph Row -->
+    <div class="row  push-down">
+        <div class="col-md-12">
+            <nvd3 options="option" data="data"></nvd3>
+        </div>
+  
+        
+    </div>
+<!-- /.row -->
+    
+<!-- row -->
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline" ng-submit="checkLoan()">
+
+            <!-- Form Name -->
+            <legend>{{ 'indexedloan.info' | translate }}</legend>
+
+            <!-- Appended Input-->
+            <div class="form-group push-down">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">{{ 'indexedloan.principal' | translate }}</span>
+                        <input type="number" ng-model="principal" class="form-control input-sm" step="1" min="0" >
+                        <span class="input-group-addon">ISK</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">{{ 'indexedloan.durantion' | translate }}</span>
+                        <input ng-model="duration" class="form-control input-sm" type="number" step="1" min="0" max="480" />
+                        <span class="input-group-addon">#</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Appended Input-->
+            <div class="form-group push-down">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">Verðtryggðir</span>
+                        <input ng-model="interest" class="form-control input-sm" type="number" step="0.01" min="0" max="100" />
+                        <span class="input-group-addon">%</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">ÓVerðtryggðir</span>
+                        <input type="number" ng-model="compoundInterest" class="form-control input-sm"  step="0.01" min="0" max="100" /> 
+                        <span class="input-group-addon">%</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-group push-down">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">CPI</span>
+                        <input type="number" ng-model="compound" class="form-control input-sm"  step="0.01" min="0" max="100" /> 
+                        <span class="input-group-addon">%</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">Laun f.skatt</span>
+                        <input type="number" ng-model="pay" class="form-control input-sm" step="1" min="0" >
+                        <span class="input-group-addon">ISK</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="col-md-11 push-down">
+                <button id="singlebutton" class="btn btn-default pull-right" style="right:220px;">{{ 'indexedloan.button' | translate }}</button>
+            </div>
+                    
+           
+        </form>
+        </div>
+        <div class="col-md-6">
+
+            <h4 class="push-down">Almennar upplýsingar</h4>
+
+            <table class="table table-striped push-down" >
+
+                <tbody>
+                    <tr>
+                        <td>Höfuðstóll</td>
+                        <td class="idxLoanResultsTable">{{indexedLoanResult.principal | number: 0}}</td>
+                        <td>Verðtryggðir vextir</td>
+   
+                        <td class="idxLoanResultsTable">{{indexedLoanResult.interest * 100}}%</td>
+
+
+                    </tr>
+                    <tr>
+                        <td>Lánstími í árum</td>
+                        <td class="idxLoanResultsTable">{{indexedLoanResult.id / 12}}</td>
+                        <td>Óverðtryggðir vextir</td>
+                        <td class="idxLoanResultsTable">{{compoundInterest}}%</td>
+
+                        
+                    </tr>
+                    <tr >
+                        <td>Fjöldi afborgana</td>
+                        <td class="idxLoanResultsTable">{{indexedLoanResult.id}}</td>
+                        <td>CPI</td>
+                        <td class="idxLoanResultsTable">{{indexedLoanResult.cpi * 100}}%</td>
+                
+                    </tr>
+                        <td colspan="2">Verðbólga</td>
+                        <td colspan="2" class="idxLoanResultsTable">{{indexedLoanResult.inflation * 1000 | number: 2}}%</td>
+                    <tr>
+                    <tr>
+                        <td>Framlag launþega</td>
+                        <td>{{userPercent}}%</td>
+                        <td>Mótframlag greiðanda</td>
+                        <td>{{payerPercent}}%</td>
+                    </tr>
+                    <tr>
+                        <td colspan="">Laun fyrir skatt</td>
+                        <td colspan="">{{pay | number: 0}} ISK</td>
+                        <td colspan="">Greitt á höfuðstól</td>
+                        <td colspan="">{{payOnPrincipal | number: 0}} ISK</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+<!-- /.col-md-4 -->
+    </div>
+
+
+<!-- /.row -->
+
+
+
+
