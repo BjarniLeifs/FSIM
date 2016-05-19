@@ -13,7 +13,7 @@ About comments in the code, some are truly redundant, however there are few new 
 
 ## Links in the documentation and more. 
 
-Here you get step by step [How to setup!](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/howtostart.md) the project.
+Here you get step by step [How to setup!](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/howtostart.md)
 
 Here you can see where things are and little information on each component of the structure. [Folder structure](https://github.com/BjarniLeifs/Financial-system-simulation/blob/master/documentation/foldersturcture.MD)
 
